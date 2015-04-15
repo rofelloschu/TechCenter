@@ -1,0 +1,2 @@
+D:\John\demo2013\TechCenter\TechCenter\obj\Debug\TechCenter.Resources.resources
+D:\John\demo2013\TechCenter\TechCenter\obj\Debug\TechCenter.vbproj.GenerateResource.Cache

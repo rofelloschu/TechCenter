@@ -1,0 +1,8 @@
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\bin\Release\sunskyLib.dll
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\bin\Release\sunskyLib.pdb
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\bin\Release\sunskyLib.xml
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\obj\Release\sunskyLib.Resources.resources
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\obj\Release\sunskyLibrary.vbproj.GenerateResource.Cache
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\obj\Release\sunskyLib.dll
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\obj\Release\sunskyLib.xml
+D:\John\SVN\sunsky_C\VS2013\sunskyLibrary\sunskyLibrary\obj\Release\sunskyLib.pdb
