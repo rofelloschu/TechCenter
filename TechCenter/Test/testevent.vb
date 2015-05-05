@@ -3,6 +3,7 @@ Public Class testevent
 
 End Class
 #Region "testevent"
+
 Public Class loopThread
     Private Shared SleepTime As Integer = 1
     Private Shared LoopAlive As Boolean = True
