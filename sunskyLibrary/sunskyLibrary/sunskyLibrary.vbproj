@@ -68,6 +68,7 @@
     <Compile Include="doc\IF_logfile.vb" />
     <Compile Include="Form\ControlBar_.vb" />
     <Compile Include="Form\LogTextBox.vb" />
+    <Compile Include="Form\LogTextBox_V02.vb" />
     <Compile Include="Form\ParameterToComboBox.vb" />
     <Compile Include="help.vb" />
     <Compile Include="Model\M_ArraySum.vb" />

@@ -64,6 +64,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -91,8 +92,11 @@
     <Compile Include="other\Form\ADListBox.vb" />
     <Compile Include="Test\ComTest.vb" />
     <Compile Include="Test\ConvertToAny.vb" />
+    <Compile Include="Test\CRC.vb" />
+    <Compile Include="Test\doc\IF_logfile.vb" />
     <Compile Include="Test\FtpClient.vb" />
     <Compile Include="Test\IcmpPacket.vb" />
+    <Compile Include="Test\Interface\IF_autoUpdata.vb" />
     <Compile Include="Test\model\M_Class1.vb" />
     <Compile Include="Test\OnlyOne.vb" />
     <Compile Include="Test\SendMail.vb" />
