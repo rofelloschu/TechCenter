@@ -7,6 +7,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TechCenter", "TechCenter\Te
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "sunskyLibrary", "sunskyLibrary\sunskyLibrary\sunskyLibrary.vbproj", "{F211BE95-4484-4ECE-99D6-84C202869E0E}"
 EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ClassLibrary_apple", "ClassLibrary_apple\ClassLibrary_apple.vbproj", "{8AD1A513-8C8B-48BE-BF54-8B0A80FFEDFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F211BE95-4484-4ECE-99D6-84C202869E0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F211BE95-4484-4ECE-99D6-84C202869E0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F211BE95-4484-4ECE-99D6-84C202869E0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AD1A513-8C8B-48BE-BF54-8B0A80FFEDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD1A513-8C8B-48BE-BF54-8B0A80FFEDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD1A513-8C8B-48BE-BF54-8B0A80FFEDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD1A513-8C8B-48BE-BF54-8B0A80FFEDFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

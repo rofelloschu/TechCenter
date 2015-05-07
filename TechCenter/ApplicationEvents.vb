@@ -19,7 +19,7 @@ Namespace My
             '    e.Handled = True
             '    Return
             'End If
-
+            Console.WriteLine("")
             ' Exception is unrecoverable so stop the application and allow the 
             ' Silverlight plug-in control to detect and process the exception. 
 

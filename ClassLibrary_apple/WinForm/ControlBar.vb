@@ -1,4 +1,4 @@
-﻿'20130329
+﻿'20150507
 'Public Class ControlToolStripProgressBar
 '    Private Shared Instance As ControlToolStripProgressBar
 '    Private myBar As System.Windows.Forms.ToolStripProgressBar
@@ -88,55 +88,60 @@
 '    End Function
 'End Class
 
-<ObsoleteAttribute("DLL過時，改用sunskyLibrary", False)> _
-Public Class ControlProgressBar
-    Implements Bar_IF
+Namespace WinForm
 
-    Private Bar As System.Windows.Forms.ProgressBar
-    Private Form As System.Windows.Forms.Form
-    Sub New(ByVal tform As System.Windows.Forms.Form, ByVal tBar As System.Windows.Forms.ProgressBar)
-        Me.Form = tform
-        Me.Bar = tBar
 
-    End Sub
-    Delegate Sub setMaximumCallback(ByVal Maximum As Integer)
-    Public Sub setMaximum(ByVal Maximum As Integer) Implements Bar_IF.RestartMaximum
+    Public Class ControlProgressBar
+        Implements Bar_IF
 
-        If Me.Bar.InvokeRequired Then
-            Me.Form.Invoke(New setMaximumCallback(AddressOf setMaximum), New Object() {Maximum})
-        Else
-            Me.Bar.Maximum = Maximum
-            Me.Bar.Minimum = 0
-            Me.Bar.Value = Me.Bar.Minimum
-        End If
-    End Sub
-    Delegate Function getMinimumCaretCallback() As Integer
-    Public Function getValue() As Integer Implements Bar_IF.getValue
+        Private Bar As System.Windows.Forms.ProgressBar
+        Private Form As System.Windows.Forms.Form
+        Sub New(ByVal tform As System.Windows.Forms.Form, ByVal tBar As System.Windows.Forms.ProgressBar)
+            Me.Form = tform
+            Me.Bar = tBar
 
-        If Me.Bar.InvokeRequired Then
-            Me.Form.Invoke(New getMinimumCaretCallback(AddressOf getValue), New Object() {})
-        Else
-            Return Me.Bar.Value
-        End If
+        End Sub
+        Delegate Sub setMaximumCallback(ByVal Maximum As Integer)
+        Public Sub setMaximum(ByVal Maximum As Integer) Implements Bar_IF.RestartMaximum
 
-    End Function
-    Delegate Sub BarPerformStepCaretCallback()
-    Public Sub BarPerformStep() Implements Bar_IF.BarPerformStep
-        If Me.Bar.InvokeRequired Then
-            Me.Form.Invoke(New BarPerformStepCaretCallback(AddressOf BarPerformStep), New Object() {})
-        Else
-            Me.Bar.Value = Me.Bar.Value + 1
-        End If
+            If Me.Bar.InvokeRequired Then
+                Me.Form.Invoke(New setMaximumCallback(AddressOf setMaximum), New Object() {Maximum})
+            Else
+                Me.Bar.Maximum = Maximum
+                Me.Bar.Minimum = 0
+                Me.Bar.Value = Me.Bar.Minimum
+            End If
+        End Sub
+        Delegate Function getMinimumCaretCallback() As Integer
+        Public Function getValue() As Integer Implements Bar_IF.getValue
 
-    End Sub
+            If Me.Bar.InvokeRequired Then
+                '不確定是否可return
+                Return Me.Form.Invoke(New getMinimumCaretCallback(AddressOf getValue), New Object() {})
+            Else
+                Return Me.Bar.Value
+            End If
 
-    'Public Sub BarPerformStep1() Implements Bar_IF.BarPerformStep
 
-    'End Sub
-End Class
-<ObsoleteAttribute("DLL過時，改用sunskyLibrary", False)> _
-Interface Bar_IF
-    Sub BarPerformStep()
-    Function getValue() As Integer
-    Sub RestartMaximum(ByVal Max As Integer)
-End Interface
+
+        End Function
+        Delegate Sub BarPerformStepCaretCallback()
+        Public Sub BarPerformStep() Implements Bar_IF.BarPerformStep
+            If Me.Bar.InvokeRequired Then
+                Me.Form.Invoke(New BarPerformStepCaretCallback(AddressOf BarPerformStep), New Object() {})
+            Else
+                Me.Bar.Value = Me.Bar.Value + 1
+            End If
+
+        End Sub
+
+        'Public Sub BarPerformStep1() Implements Bar_IF.BarPerformStep
+
+        'End Sub
+    End Class
+    Interface Bar_IF
+        Sub BarPerformStep()
+        Function getValue() As Integer
+        Sub RestartMaximum(ByVal Max As Integer)
+    End Interface
+End Namespace

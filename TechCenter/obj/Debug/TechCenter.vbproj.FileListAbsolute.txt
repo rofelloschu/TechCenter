@@ -1,2 +1,11 @@
 D:\John\demo2013\TechCenter\TechCenter\obj\Debug\TechCenter.Resources.resources
 D:\John\demo2013\TechCenter\TechCenter\obj\Debug\TechCenter.vbproj.GenerateResource.Cache
+D:\John\GitHub\TechCenter\TechCenter\bin\Debug\TechCenter.exe
+D:\John\GitHub\TechCenter\TechCenter\bin\Debug\TechCenter.pdb
+D:\John\GitHub\TechCenter\TechCenter\bin\Debug\TechCenter.xml
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.Form1.resources
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.Resources.resources
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.vbproj.GenerateResource.Cache
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.exe
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.xml
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.pdb
