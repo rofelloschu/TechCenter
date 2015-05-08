@@ -4,7 +4,7 @@ Namespace WinForm
         Delegate Sub SetTextArrayCallback(ByVal textbox As System.Windows.Forms.TextBox, ByVal text As String())
         Delegate Sub SetTextBoxSelectionStart_MaxCallback()
         Private t_textbox As System.Windows.Forms.TextBox
-        Private mList As mutexList_V02(Of String)
+        Private mList As IO.mutexList_V02(Of String)
         Private gsMaxCount As Integer
         Private form As System.Windows.Forms.Form
         Private log As IF_logfile
@@ -12,7 +12,7 @@ Namespace WinForm
         Sub New(ByVal textbox As System.Windows.Forms.TextBox)
             m_isWrtieLog = False
             MaxCount = 255
-            mList = New mutexList_V02(Of String)
+            mList = New IO.mutexList_V02(Of String)
             Me.form = textbox.FindForm
             Me.t_textbox = textbox
             '  Me.log = New IF_logfile(Me.t_textbox.Name + "_log", True)

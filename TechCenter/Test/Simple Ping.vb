@@ -1,4 +1,5 @@
-﻿Imports System.Net
+﻿'20150508
+Imports System.Net
 Imports System.Net.Sockets
 Imports System.Text
 
@@ -39,7 +40,7 @@ Public Class Simple_Ping
         chcksm = (chcksm >> 16) + (chcksm And &HFFFF)
         chcksm += (chcksm >> 16)
         Dim chcksmx As UInt16 = (Not chcksm) And UInt16.MaxValue
-        Return DirectCast(chcksmx, UInt16)
+        Return chcksmx
     End Function
 
 End Class

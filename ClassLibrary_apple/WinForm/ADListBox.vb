@@ -3,18 +3,18 @@ Namespace WinForm
     Class ADListBox
 
         Private ListBox As System.Windows.Forms.ListBox
-        Private mList As mutexList(Of String)
+        Private mList As IO.mutexList(Of String)
         Private fileName As String
         Sub New(ByVal ListBox As System.Windows.Forms.ListBox, ByVal fileName As String)
             Me.fileName = fileName
-            mList = New mutexList(Of String)
+            mList = New IO.mutexList(Of String)
             Me.ListBox = ListBox
             readFile()
 
         End Sub
         Sub New(ByVal ListBox As System.Windows.Forms.ListBox, ByVal text As String())
             fileName = Nothing
-            mList = New mutexList(Of String)
+            mList = New IO.mutexList(Of String)
             Me.ListBox = ListBox
             readFile(text)
 

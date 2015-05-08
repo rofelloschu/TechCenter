@@ -115,6 +115,10 @@ Namespace Test
             End Try
 
         End Sub
+        Function IsIP(ByVal IP As String) As Boolean
+            Return System.Text.RegularExpressions.Regex.IsMatch(IP, "\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$\b")
+        End Function
     End Module
+
 End Namespace
 
