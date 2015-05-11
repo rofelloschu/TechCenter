@@ -1,13 +1,15 @@
 ﻿'20150511
 '偵測錯誤
 Public Class TC_FaultDetection
-    Private m_isRun As Boolean
+    Private m_isRunwrite As Boolean
     Private m_name As String
     Private ValueDiction As Dictionary(Of String, String)
 
-    Sub New(t_name As String, t_isrun As Boolean)
+    Private AutoResetEvent As New System.Threading.AutoResetEvent(True)
+
+    Sub New(t_name As String, t_isrunwrite As Boolean)
         m_name = t_name
-        m_isRun = t_isrun
+        m_isRunwrite = t_isrunwrite
         ValueDiction = New Dictionary(Of String, String)
     End Sub
     Sub close()
@@ -15,29 +17,41 @@ Public Class TC_FaultDetection
         ValueDiction = Nothing
     End Sub
     '設定值
-    Sub setValue(name As String, setValue As String)
+    Function setValue(name As String, t_setValue As String) As String
+        AutoResetEvent.WaitOne()
         If ValueDiction.ContainsKey(name) Then
-            ValueDiction(name) = setValue
-            write_setValue(name + " = " + setValue)
+            ValueDiction(name) = t_setValue
+            write_setValue(name + " = " + t_setValue)
+            AutoResetEvent.set()
+            Return "setValue"
         Else
-            ValueDiction.Add(name, setValue)
-            write_newValue(name + " = " + setValue)
+            ValueDiction.Add(name, t_setValue)
+            write_newValue(name + " = " + t_setValue)
+            AutoResetEvent.set()
+            Return "newValue"
         End If
-    End Sub
+    End Function
     '比較值
-    Sub thanValue(name As String, getvalue As String)
+    Function thanValue(name As String, t_getvalue As String) As String
+        AutoResetEvent.WaitOne()
         If ValueDiction.ContainsKey(name) Then
-            If ValueDiction(name) = getvalue Then
+            If ValueDiction(name) = t_getvalue Then
                 write_thesame(name + " 相同")
+                AutoResetEvent.set()
+                Return "thesame"
             Else
-                write_different(name + " 不相同" + " 設定=" + ValueDiction(name) + " " + "比較=" + getvalue)
+                write_different(name + " 不相同" + " 設定=" + ValueDiction(name) + " " + "比較=" + t_getvalue)
+                AutoResetEvent.set()
+                Return "different"
             End If
         Else
             write_nothing(name + " 無值")
+            AutoResetEvent.set()
+            Return "nothing"
         End If
-    End Sub
+    End Function
     Private Sub wtiteFile(Data As String)
-        If m_isRun Then
+        If m_isRunwrite Then
             System.IO.File.AppendAllText(m_name + ".txt", Data)
         End If
 
