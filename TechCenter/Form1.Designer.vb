@@ -23,6 +23,7 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.OpenDir_Button = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
@@ -34,11 +35,21 @@ Partial Class Form1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'OpenDir_Button
+        '
+        Me.OpenDir_Button.Location = New System.Drawing.Point(197, 12)
+        Me.OpenDir_Button.Name = "OpenDir_Button"
+        Me.OpenDir_Button.Size = New System.Drawing.Size(75, 23)
+        Me.OpenDir_Button.TabIndex = 1
+        Me.OpenDir_Button.Text = "開啟資料夾"
+        Me.OpenDir_Button.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.Controls.Add(Me.OpenDir_Button)
         Me.Controls.Add(Me.Button1)
         Me.Name = "Form1"
         Me.Text = "Form1"
@@ -46,5 +57,6 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents OpenDir_Button As System.Windows.Forms.Button
 
 End Class

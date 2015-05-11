@@ -9,3 +9,7 @@ D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.vbproj.GenerateResourc
 D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.exe
 D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.xml
 D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.pdb
+D:\John\GitHub\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.dll
+D:\John\GitHub\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.pdb
+D:\John\GitHub\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.xml
+D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.vbprojResolveAssemblyReference.cache

@@ -1,0 +1,5 @@
+2015-05-11 10:57:56Z [newValue] new = true
+2015-05-11 10:57:56Z [setValue] new = false
+2015-05-11 10:57:56Z [than different] new 不相同 設定=false 取得=true
+2015-05-11 10:57:56Z [than thesame] new 相同
+2015-05-11 10:57:56Z [than nothing] new2 無值
