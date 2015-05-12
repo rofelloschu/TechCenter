@@ -62,8 +62,10 @@
     <Compile Include="SoftBase\M_catchException.vb" />
     <Compile Include="SoftBase\M_WriteLineMaster.vb" />
     <Compile Include="WinForm\ADListBox.vb" />
+    <Compile Include="WinForm\checkIPToFormsControl.vb" />
     <Compile Include="WinForm\ComboBoxSelectToTabControl.vb" />
     <Compile Include="WinForm\ControlBar.vb" />
+    <Compile Include="WinForm\FormPlus.vb" />
     <Compile Include="WinForm\LogTextBox.vb" />
     <Compile Include="WinForm\LogTextBox_V02.vb" />
     <Compile Include="IO\mutexList.vb" />
