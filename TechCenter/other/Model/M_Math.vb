@@ -66,7 +66,7 @@ Public Module M_Math
         Next i
     End Function
     '16轉2
-    Public Function HEX_to_BIN(ByVal Hex As String) As String
+    Public Function HEX_to_BIN(ByVal Hex As String, removeZero As Boolean) As String
         Dim i As Long
         Dim B As String = ""
 
@@ -91,9 +91,12 @@ Public Module M_Math
                 Case "F" : B = B & "1111"
             End Select
         Next i
-        While Left(B, 1) = "0"
-            B = Right(B, Len(B) - 1)
-        End While
+        If removeZero Then
+            While Microsoft.VisualBasic.Strings.Left(B, 1) = "0"
+                B = Microsoft.VisualBasic.Strings.Right(B, Len(B) - 1)
+            End While
+        End If
+
         HEX_to_BIN = B
 
     End Function
