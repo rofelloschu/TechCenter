@@ -83,6 +83,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Create\IF_Tube.vb" />
+    <Compile Include="Create\M_Tube.vb" />
+    <Compile Include="Create\Tube.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -106,8 +109,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Test\differentValueRecord.vb" />
-    <Compile Include="Test\TC_FaultDetection.vb" />
+    <Compile Include="Create\differentValueRecord.vb" />
+    <Compile Include="Create\TC_FaultDetection.vb" />
     <Compile Include="willdel\APFile.vb" />
     <Compile Include="willdel\mutexList.vb" />
     <Compile Include="Test\cFTP.vb" />
@@ -179,7 +182,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Create\" />
     <Folder Include="other\test\" />
     <Folder Include="Test\doc\" />
     <Folder Include="Test\form\" />
