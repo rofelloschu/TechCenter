@@ -13,3 +13,4 @@ D:\John\GitHub\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.dll
 D:\John\GitHub\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.pdb
 D:\John\GitHub\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.xml
 D:\John\GitHub\TechCenter\TechCenter\obj\Debug\TechCenter.vbprojResolveAssemblyReference.cache
+D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.xml

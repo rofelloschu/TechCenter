@@ -1,11 +1,7 @@
 ﻿Imports System.Threading
 Namespace Test
     Public Module M_test
-        Sub a()
-            MsgBox(Convert.ToString(Convert.ToInt32("1111", 2))) '//2進制轉10進制
-            MsgBox(Convert.ToString(Convert.ToInt32("11", 8))) '//8進制轉10進制
-            MsgBox(Convert.ToString(Convert.ToInt32("0XFF", 16))) '//16進制轉10進制
-        End Sub
+   
 
         Private t_onlyCmd As Thread
         Private cmdString As String
@@ -74,39 +70,8 @@ Namespace Test
             'End Try
 
         End Sub
-        Sub allRandom()
-            Dim Counter As Random = New Random(Guid.NewGuid().GetHashCode())
-            Console.WriteLine(Counter.Next(0, 10))
-
-        End Sub
-        Function chrToHexString(text As String) As String
-            Dim bytesString As String() = text.Split(" ")
-            Dim stringbyteslist As New List(Of Byte)
-            For index As Integer = 0 To bytesString.Length - 1
-                Try
-                    stringbyteslist.Add(Convert.ToInt32("0X" + bytesString(index), 16))
-                Catch ex As Exception
-                    Console.WriteLine("err " + bytesString(index))
-                    stringbyteslist.Add(0)
-                End Try
-
-            Next
-            Return System.Text.Encoding.ASCII.GetString(stringbyteslist.ToArray)
-        End Function
-        Function HexStringToChr(text As String)
-            Dim stringbytes As Byte() = System.Text.Encoding.ASCII.GetBytes(text)
-            Dim bytesString As String = ""
-            For index As Integer = 0 To stringbytes.Length - 1
-                If index = 0 Then
-                    bytesString = stringbytes(index).ToString("x2")
-                Else
-                    bytesString = bytesString + " " + stringbytes(index).ToString("x2")
-                End If
-
-            Next
-            Return bytesString
-        End Function
-
+       
+        
         Sub OpenDir(dirPath As String)
             Try
                 System.Diagnostics.Process.Start("explorer.exe", dirPath)

@@ -1,9 +1,22 @@
-﻿<ObsoleteAttribute("DLL過時，改用sunskyLibrary", False)> _
+﻿'20151126
 Public Module M_Math
-
+#Region "亂數"
+    '使用NewGuid作亂數種子
     Public Function getRandomSeed() As Integer
         Return Guid.NewGuid().GetHashCode()
     End Function
+    Public Function getRandomObj() As Random
+        Return New Random(Guid.NewGuid().GetHashCode())
+    End Function
+ 
+#End Region
+
+#Region "數字文字轉換"
+    Private Sub test_01()
+        MsgBox(Convert.ToString(Convert.ToInt32("1111", 2))) '//2進制轉10進制
+        MsgBox(Convert.ToString(Convert.ToInt32("11", 8))) '//8進制轉10進制
+        MsgBox(Convert.ToString(Convert.ToInt32("0XFF", 16))) '//16進制轉10進制
+    End Sub
     Public Function ToHexString(ByVal value As Integer) As String
         Return value.ToString("X2")
     End Function
@@ -66,7 +79,7 @@ Public Module M_Math
         Next i
     End Function
     '16轉2
-    Public Function HEX_to_BIN(ByVal Hex As String, removeZero As Boolean) As String
+    Public Function HEX_to_BIN(ByVal Hex As String) As String
         Dim i As Long
         Dim B As String = ""
 
@@ -91,12 +104,9 @@ Public Module M_Math
                 Case "F" : B = B & "1111"
             End Select
         Next i
-        If removeZero Then
-            While Microsoft.VisualBasic.Strings.Left(B, 1) = "0"
-                B = Microsoft.VisualBasic.Strings.Right(B, Len(B) - 1)
-            End While
-        End If
-
+        While Left(B, 1) = "0"
+            B = Right(B, Len(B) - 1)
+        End While
         HEX_to_BIN = B
 
     End Function
@@ -269,4 +279,33 @@ Public Module M_Math
     '    Bin = HEX_to_BIN(Hex)
     '    HEX_to_OCT = BIN_to_OCT(Bin)
     'End Function
+    Function chrToHexString(text As String) As String
+        Dim bytesString As String() = text.Split(" ")
+        Dim stringbyteslist As New List(Of Byte)
+        For index As Integer = 0 To bytesString.Length - 1
+            Try
+                stringbyteslist.Add(Convert.ToInt32("0X" + bytesString(index), 16))
+            Catch ex As Exception
+                Console.WriteLine("err " + bytesString(index))
+                stringbyteslist.Add(0)
+            End Try
+
+        Next
+        Return System.Text.Encoding.ASCII.GetString(stringbyteslist.ToArray)
+    End Function
+    Function HexStringToChr(text As String)
+        Dim stringbytes As Byte() = System.Text.Encoding.ASCII.GetBytes(text)
+        Dim bytesString As String = ""
+        For index As Integer = 0 To stringbytes.Length - 1
+            If index = 0 Then
+                bytesString = stringbytes(index).ToString("x2")
+            Else
+                bytesString = bytesString + " " + stringbytes(index).ToString("x2")
+            End If
+
+        Next
+        Return bytesString
+    End Function
+
+#End Region
 End Module

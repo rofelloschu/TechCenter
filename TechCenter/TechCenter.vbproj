@@ -144,7 +144,6 @@
     <Compile Include="other\Model\M_ArraySum.vb" />
     <Compile Include="willdel\M_catchException.vb" />
     <Compile Include="other\Model\M_EncodingDefault.vb" />
-    <Compile Include="other\Model\M_Math.vb" />
     <Compile Include="other\Model\M_other.vb" />
     <Compile Include="willdel\M_WriteLineMaster.vb" />
     <Compile Include="other\Model\Version.vb" />
