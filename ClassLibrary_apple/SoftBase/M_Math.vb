@@ -24,6 +24,7 @@ Public Module M_Math
         Return value.ToString("X" + len.ToString)
 
     End Function
+    
     Public Function ToHexBytes(ByVal value As Integer) As Byte()
         Dim HexString As String = value.ToString("X")
         Dim index As Integer = 0

@@ -22,3 +22,11 @@ D:\John\GitHub\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLibrary.vb
 D:\John\GitHub\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.dll
 D:\John\GitHub\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.xml
 D:\John\GitHub\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.pdb
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\bin\Debug\sunskyLib.dll
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\bin\Debug\sunskyLib.pdb
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\bin\Debug\sunskyLib.xml
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.Resources.resources
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLibrary.vbproj.GenerateResource.Cache
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.dll
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.xml
+D:\john2\github\TechCenter\sunskyLibrary\sunskyLibrary\obj\Debug\sunskyLib.pdb

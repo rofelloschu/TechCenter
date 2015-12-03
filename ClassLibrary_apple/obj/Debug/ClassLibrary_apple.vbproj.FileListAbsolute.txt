@@ -6,3 +6,11 @@ D:\John\GitHub\TechCenter\ClassLibrary_apple\bin\Debug\ClassLibrary_apple.xml
 D:\John\GitHub\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.dll
 D:\John\GitHub\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.xml
 D:\John\GitHub\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.pdb
+D:\john2\github\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.xml
+D:\john2\github\TechCenter\ClassLibrary_apple\bin\Debug\ClassLibrary_apple.dll
+D:\john2\github\TechCenter\ClassLibrary_apple\bin\Debug\ClassLibrary_apple.pdb
+D:\john2\github\TechCenter\ClassLibrary_apple\bin\Debug\ClassLibrary_apple.xml
+D:\john2\github\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.Resources.resources
+D:\john2\github\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.vbproj.GenerateResource.Cache
+D:\john2\github\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.dll
+D:\john2\github\TechCenter\ClassLibrary_apple\obj\Debug\ClassLibrary_apple.pdb
