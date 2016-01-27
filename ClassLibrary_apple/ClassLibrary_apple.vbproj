@@ -58,6 +58,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="File\APFile.vb" />
+    <Compile Include="File\Class csvWrite_undone.vb" />
+    <Compile Include="File\csvFile_undone.vb" />
+    <Compile Include="File\logFile_undone.vb" />
+    <Compile Include="File\OnlyReadFile.vb" />
+    <Compile Include="File\OnlyWriteFile.vb" />
+    <Compile Include="File\ParameterArrayFile_undone.vb" />
+    <Compile Include="File\ParameterFile_undone.vb" />
     <Compile Include="model\IF_logfile.vb" />
     <Compile Include="model\IF_class.vb" />
     <Compile Include="SoftBase\M_Math.vb" />

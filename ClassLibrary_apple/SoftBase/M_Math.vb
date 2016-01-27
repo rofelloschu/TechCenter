@@ -1,4 +1,4 @@
-﻿'20151126
+﻿'20160127
 Public Module M_Math
 #Region "亂數"
     '使用NewGuid作亂數種子
@@ -42,7 +42,28 @@ Public Module M_Math
         Next
         Return return_bytes
     End Function
+    Public Function ToHexBytes(ByVal value As Integer, ByVal len As Integer) As Byte()
+        Dim HexString As String = value.ToString("X" + (len * 2).ToString)
+        If len > 0 Then
+            HexString = value.ToString("X" + (len * 2).ToString)
+        Else
+            HexString = value.ToString("X")
+        End If
+        Dim index As Integer = 0
 
+        If HexString.Length Mod 2 = 0 Then
+            index = HexString.Length \ 2
+        Else
+            HexString = "0" + HexString
+            index = HexString.Length \ 2
+        End If
+
+        Dim return_bytes(index - 1) As Byte
+        For index = 0 To return_bytes.Length - 1
+            return_bytes(index) = Convert.ToInt32("0X" + HexString.Substring(index * 2, 2), 16)
+        Next
+        Return return_bytes
+    End Function
     ' 10進制轉成2、8、16進制
     '1
     'j=Convert.ToString(10, 2)        '10進制轉2進制     j="1010"

@@ -1,4 +1,5 @@
 ﻿Imports System.Windows
+Imports ClassLibrary_apple
 Public Class Form1
 
 
@@ -21,13 +22,27 @@ Public Class Form1
         'TC_FaultDetection.thanValue("new", "true")
         'TC_FaultDetection.thanValue("new", "false")
         'TC_FaultDetection.thanValue("new2", "true")
-        differentValueRecord.setValue("new03", "true")
-        System.Threading.Thread.Sleep(10000)
-        differentValueRecord.setValue("new03", "true")
-        System.Threading.Thread.Sleep(5000)
-        differentValueRecord.setValue("new03", "false")
-    End Sub
+        'differentValueRecord.setValue("new03", "true")
+        'System.Threading.Thread.Sleep(10000)
+        'differentValueRecord.setValue("new03", "true")
+        'System.Threading.Thread.Sleep(5000)
+        'differentValueRecord.setValue("new03", "false
+        'Dim ClassC As New ClassC
+        'Dim classA As IF_A = ClassC
+        'classA.AA()
+        'classA.BB()
+        'Dim classB As IF_B = ClassC
+        'classB.BB()    
 
+        'Dim del As MyDelSub
+        'del = New MyDelSub(AddressOf WriteToDebug)
+        'del.Invoke()
+        Dim a As Byte() = M_Math.ToHexBytes(0, 2)
+    End Sub
+    Private Delegate Sub MyDelSub()
+    Private Sub WriteToDebug()
+        Console.WriteLine("Delegate Wrote To Debug Window")
+    End Sub
 
     Private Sub OpenDir_Button_Click(sender As Object, e As EventArgs) Handles OpenDir_Button.Click
         Test.M_test.OpenDir(System.IO.Directory.GetCurrentDirectory)

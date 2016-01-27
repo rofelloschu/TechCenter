@@ -1,8 +1,22 @@
-﻿Public Module M_Math
-
+﻿'20151126
+Public Module M_Math
+#Region "亂數"
+    '使用NewGuid作亂數種子
     Public Function getRandomSeed() As Integer
         Return Guid.NewGuid().GetHashCode()
     End Function
+    Public Function getRandomObj() As Random
+        Return New Random(Guid.NewGuid().GetHashCode())
+    End Function
+
+#End Region
+
+#Region "數字文字轉換"
+    Private Sub test_01()
+        MsgBox(Convert.ToString(Convert.ToInt32("1111", 2))) '//2進制轉10進制
+        MsgBox(Convert.ToString(Convert.ToInt32("11", 8))) '//8進制轉10進制
+        MsgBox(Convert.ToString(Convert.ToInt32("0XFF", 16))) '//16進制轉10進制
+    End Sub
     Public Function ToHexString(ByVal value As Integer) As String
         Return value.ToString("X2")
     End Function
@@ -10,6 +24,7 @@
         Return value.ToString("X" + len.ToString)
 
     End Function
+
     Public Function ToHexBytes(ByVal value As Integer) As Byte()
         Dim HexString As String = value.ToString("X")
         Dim index As Integer = 0
@@ -27,7 +42,23 @@
         Next
         Return return_bytes
     End Function
+    Public Function ToHexBytes(ByVal value As Integer, ByVal len As Integer) As Byte()
+        Dim HexString As String = value.ToString("X" + len.ToString)
+        Dim index As Integer = 0
 
+        If HexString.Length Mod 2 = 0 Then
+            index = HexString.Length \ 2
+        Else
+            HexString = "0" + HexString
+            index = HexString.Length \ 2
+        End If
+
+        Dim return_bytes(index - 1) As Byte
+        For index = 0 To return_bytes.Length - 1
+            return_bytes(index) = Convert.ToInt32("0X" + HexString.Substring(index * 2, 2), 16)
+        Next
+        Return return_bytes
+    End Function
     ' 10進制轉成2、8、16進制
     '1
     'j=Convert.ToString(10, 2)        '10進制轉2進制     j="1010"
@@ -265,4 +296,33 @@
     '    Bin = HEX_to_BIN(Hex)
     '    HEX_to_OCT = BIN_to_OCT(Bin)
     'End Function
+    Function chrToHexString(text As String) As String
+        Dim bytesString As String() = text.Split(" ")
+        Dim stringbyteslist As New List(Of Byte)
+        For index As Integer = 0 To bytesString.Length - 1
+            Try
+                stringbyteslist.Add(Convert.ToInt32("0X" + bytesString(index), 16))
+            Catch ex As Exception
+                Console.WriteLine("err " + bytesString(index))
+                stringbyteslist.Add(0)
+            End Try
+
+        Next
+        Return System.Text.Encoding.ASCII.GetString(stringbyteslist.ToArray)
+    End Function
+    Function HexStringToChr(text As String)
+        Dim stringbytes As Byte() = System.Text.Encoding.ASCII.GetBytes(text)
+        Dim bytesString As String = ""
+        For index As Integer = 0 To stringbytes.Length - 1
+            If index = 0 Then
+                bytesString = stringbytes(index).ToString("x2")
+            Else
+                bytesString = bytesString + " " + stringbytes(index).ToString("x2")
+            End If
+
+        Next
+        Return bytesString
+    End Function
+
+#End Region
 End Module
