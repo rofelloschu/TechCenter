@@ -37,8 +37,10 @@ Public Class Form1
         'Dim del As MyDelSub
         'del = New MyDelSub(AddressOf WriteToDebug)
         'del.Invoke()
-        Dim a As Byte() = M_Math.ToHexBytes(0, 2)
+        Console.WriteLine(Asc("A"))
+        Dim a As Integer = &H1
     End Sub
+
     Private Delegate Sub MyDelSub()
     Private Sub WriteToDebug()
         Console.WriteLine("Delegate Wrote To Debug Window")

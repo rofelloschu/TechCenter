@@ -34,7 +34,7 @@ Public Module M_WriteLineMaster
             TotalBytes = TotalBytes + text.Length
             Console.WriteLine(text)
         Catch ex As Exception
-            M_catchException.printExceptionInFile("WriteLineMaster.WriteLine", ex)
+            M_catchException_APFile.printExceptionInFile("WriteLineMaster.WriteLine", ex)
         End Try
         AutoResetEvent.Set()
     End Sub
@@ -46,7 +46,7 @@ Public Module M_WriteLineMaster
             TotalBytes = TotalBytes + text.Length
             Console.Write(text)
         Catch ex As Exception
-            M_catchException.printExceptionInFile("WriteLineMaster.Write", ex)
+            M_catchException_APFile.printExceptionInFile("WriteLineMaster.Write", ex)
         End Try
         AutoResetEvent.Set()
     End Sub

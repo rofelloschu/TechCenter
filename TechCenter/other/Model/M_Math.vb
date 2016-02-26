@@ -1,4 +1,4 @@
-﻿'20160222
+﻿'20151126
 Public Module M_Math
 #Region "亂數"
     '使用NewGuid作亂數種子
@@ -8,7 +8,7 @@ Public Module M_Math
     Public Function getRandomObj() As Random
         Return New Random(Guid.NewGuid().GetHashCode())
     End Function
- 
+
 #End Region
 
 #Region "數字文字轉換"
@@ -24,7 +24,7 @@ Public Module M_Math
         Return value.ToString("X" + len.ToString)
 
     End Function
-    
+
     Public Function ToHexBytes(ByVal value As Integer) As Byte()
         Dim HexString As String = value.ToString("X")
         Dim index As Integer = 0
@@ -43,12 +43,7 @@ Public Module M_Math
         Return return_bytes
     End Function
     Public Function ToHexBytes(ByVal value As Integer, ByVal len As Integer) As Byte()
-        Dim HexString As String = value.ToString("X" + (len * 2).ToString)
-        If len > 0 Then
-            HexString = value.ToString("X" + (len * 2).ToString)
-        Else
-            HexString = value.ToString("X")
-        End If
+        Dim HexString As String = value.ToString("X" + len.ToString)
         Dim index As Integer = 0
 
         If HexString.Length Mod 2 = 0 Then
@@ -329,37 +324,5 @@ Public Module M_Math
         Return bytesString
     End Function
 
-#End Region
-
-#Region "經緯度轉換"
-    '經緯度轉度分秒 
-    Function LatLngToGPS(text As String) As String
-        Dim result As String = ""
-        Dim ary() As String = text.Trim.Split(".")
-        If ary.Length = 2 Then
-            Dim degree As Integer = CInt(ary(0))
-            Dim minute As Double
-            Dim second As Double
-            Dim temp As Double = CInt(ary(1))
-
-            '取小數位 0.12345
-            temp = temp / System.Math.Pow(10, ary(1).Length)
-            '分只留下整數位   
-            minute = Math.Floor(temp * 60)
-            '取分剩下的小數位    
-            Dim temp1 As Double
-            temp1 = (temp * 60) - Math.Floor(temp * 60)
-            second = temp1 * 60
-            result = degree.ToString() + "°" + minute.ToString("00") + "\'" + second.ToString() + "\"""
-        End If
-        Return result
-    End Function
-    '度分秒轉經緯度 
-    Function GPSToLatLng(degree As Integer, minute As Integer, second As Double) As String
-        Dim result As String = ""
-        '//x度 y分 z秒 = x + y/60 + z/3600 度      
-        result = (degree + (minute / 60) + (second / 3600)).ToString()
-        Return result
-    End Function
 #End Region
 End Module

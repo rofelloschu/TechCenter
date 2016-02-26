@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.Threading
-Public Class logFile_undone
-    Implements IDisposable
+Public Class logFile_undone 
+    Implements IDisposable, IF_logfile
     Private disposedValue As Boolean = False        ' 偵測多餘的呼叫
     Private isHaveTime As Boolean
     Private FileName As String
@@ -117,7 +117,7 @@ Public Class logFile_undone
     End Sub
 
 
-    Sub Writte(ByVal text As String)
+    Sub Writte(ByVal text As String) Implements IF_logfile.writeLine
 
         AutoResetEvent.WaitOne()
         Try
@@ -128,7 +128,7 @@ Public Class logFile_undone
         Catch ex As Exception
 
             AutoResetEvent.Set()
-            M_catchException.exWritte(Now.ToString + " logFile_undone.Writte " + ex.ToString)
+            M_catchException_APFile.exWritte(Now.ToString + " logFile_undone.Writte " + ex.ToString)
         End Try
 
         AutoResetEvent.Set()
@@ -143,7 +143,7 @@ Public Class logFile_undone
         Catch ex As Exception
 
             AutoResetEvent.Set()
-            M_catchException.exWritte(Now.ToString + " logFile_undone.time_Writte " + ex.ToString)
+            M_catchException_APFile.exWritte(Now.ToString + " logFile_undone.time_Writte " + ex.ToString)
         End Try
 
         AutoResetEvent.Set()

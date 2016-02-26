@@ -15,7 +15,7 @@ Namespace WinForm
             mList = New IO.mutexList_V02(Of String)
             Me.form = textbox.FindForm
             Me.t_textbox = textbox
-            '  Me.log = New IF_logfile(Me.t_textbox.Name + "_log", True)
+            Me.log = New logFile_undone(Me.t_textbox.Name + "_log", True)
             If Me.t_textbox.Lines.Length > 0 Then
                 For index As Integer = 0 To Me.t_textbox.Lines.Length - 1
                     mList.Add(Me.t_textbox.Lines(index))

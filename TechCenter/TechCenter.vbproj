@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="Create\differentValueRecord.vb" />
     <Compile Include="Create\TC_FaultDetection.vb" />
+    <Compile Include="other\Model\M_Math.vb" />
     <Compile Include="Test\ClassC.vb" />
     <Compile Include="Test\IF_A.vb" />
     <Compile Include="Test\IF_B.vb" />
