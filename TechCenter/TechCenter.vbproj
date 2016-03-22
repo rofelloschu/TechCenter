@@ -115,6 +115,7 @@
     <Compile Include="Test\ClassC.vb" />
     <Compile Include="Test\IF_A.vb" />
     <Compile Include="Test\IF_B.vb" />
+    <Compile Include="Test\KeyboardLayout.vb" />
     <Compile Include="willdel\APFile.vb" />
     <Compile Include="willdel\mutexList.vb" />
     <Compile Include="Test\cFTP.vb" />
