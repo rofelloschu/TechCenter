@@ -1,14 +1,26 @@
 ﻿'20151126
 Public Module M_Math
 #Region "亂數"
+    '需檢驗亂數
     '使用NewGuid作亂數種子
-    Public Function getRandomSeed() As Integer
+    Public Function getRandomSeed01() As Integer
         Return Guid.NewGuid().GetHashCode()
     End Function
-    Public Function getRandomObj() As Random
-        Return New Random(Guid.NewGuid().GetHashCode())
+    Public Function getRandomObj01() As Random
+        Return New Random(getRandomSeed01)
     End Function
-
+    Public Function getRandomSeed02() As Long
+        Return Now.GetHashCode
+    End Function
+    Public Function getRandomObj02() As Random
+        Return New Random(getRandomSeed02)
+    End Function
+    Public Function getRandomSeed03() As Long
+        Return New Object().GetHashCode
+    End Function
+    Public Function getRandomObj03() As Random
+        Return New Random(getRandomSeed03)
+    End Function
 #End Region
 
 #Region "數字文字轉換"

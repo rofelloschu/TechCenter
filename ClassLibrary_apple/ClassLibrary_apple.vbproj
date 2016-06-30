@@ -60,11 +60,17 @@
     <Compile Include="File\APFile.vb" />
     <Compile Include="File\csvWrite_undone.vb" />
     <Compile Include="File\csvFile_undone.vb" />
+    <Compile Include="File\FileReadAndWrite.vb" />
     <Compile Include="File\logFile_undone.vb" />
     <Compile Include="File\OnlyReadFile.vb" />
     <Compile Include="File\OnlyWriteFile.vb" />
     <Compile Include="File\ParameterArrayFile_undone.vb" />
     <Compile Include="File\ParameterFile_undone.vb" />
+    <Compile Include="IO\mutexList_V02.vb" />
+    <Compile Include="IO\selectKeyToValue.vb" />
+    <Compile Include="IO\WaitReviceCC.vb" />
+    <Compile Include="IO\WaitSendCC.vb" />
+    <Compile Include="model\IF_Comm.vb" />
     <Compile Include="model\IF_logfile.vb" />
     <Compile Include="model\IF_class.vb" />
     <Compile Include="SoftBase\M_catchException.vb" />

@@ -37,8 +37,15 @@ Public Class Form1
         'Dim del As MyDelSub
         'del = New MyDelSub(AddressOf WriteToDebug)
         'del.Invoke()
-        Console.WriteLine(Asc("A"))
-        Dim a As Integer = &H1
+        'Console.WriteLine(Asc("A"))
+        'Dim a As Integer = &H1
+
+        Console.WriteLine(Now.GetHashCode.ToString)
+        Dim r As New Random()
+        Console.WriteLine(r.Next(0, 10))
+        Dim o As New Object
+        Console.WriteLine(o.GetHashCode.ToString)
+        Console.WriteLine(Guid.NewGuid().GetHashCode())
     End Sub
 
     Private Delegate Sub MyDelSub()

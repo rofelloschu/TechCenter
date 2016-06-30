@@ -1,68 +1,59 @@
-'20120621
-'暫時取代mutex
-'預計寫驗證速度
-Imports System.Threading
+嚜澠mports System.Threading
 Namespace IO
-    <ObsoleteAttribute("DLL過時，list速度慢", False)> _
-    Public Class mutexList(Of T)
-        Private List As List(Of T)
+    Public Class mutexList_V02(Of T)
 
+        Private Queue As Queue(Of T)
         Private mutex As Mutex
         Private AutoResetEvent As AutoResetEvent
 
         Sub New()
             'mutex = New Mutex(False)
             AutoResetEvent = New AutoResetEvent(True)
-            List = New List(Of T)
+            Queue = New Queue(Of T)
 
         End Sub
         Sub Add(ByVal text As T)
             'Mutex.WaitOne()
             AutoResetEvent.WaitOne()
-            List.Add(text)
+            Queue.Enqueue(text)
             AutoResetEvent.Set()
             'Mutex.ReleaseMutex()
         End Sub
-        Sub addFirst(ByVal text As T)
-            ' Mutex.WaitOne()
-            AutoResetEvent.WaitOne()
-            List.Insert(0, text)
-            AutoResetEvent.Set()
-            'Mutex.ReleaseMutex()
-        End Sub
+        'Sub addFirst(ByVal text As T)
+        '    ' Mutex.WaitOne()
+        '    AutoResetEvent.WaitOne()
+        '    List.Insert(0, text)
+        '    AutoResetEvent.Set()
+        '    'Mutex.ReleaseMutex()
+        'End Sub
         Function Count() As Integer
-            Return List.Count
+            Return Queue.Count
         End Function
-        Sub removeAt(ByVal index As Integer)
-            'mutex.WaitOne()
-            AutoResetEvent.WaitOne()
-            List.RemoveAt(index)
-            AutoResetEvent.Set()
-            'Mutex.ReleaseMutex()
-        End Sub
+        'Sub removeAt(ByVal index As Integer)
+        '    'mutex.WaitOne()
+        '    AutoResetEvent.WaitOne()
+        '    List.RemoveAt(index)
+
+        '    AutoResetEvent.Set()
+        '    'Mutex.ReleaseMutex()
+        'End Sub
         Function getFirstValue() As T
             Try
 
-                Dim resText As T = Nothing
-                If List.Count = 0 Then
-                Else
-                    resText = List.Item(0)
-                    removeAt(0)
-                End If
 
 
-                Return resText
+                Return Queue.Dequeue
             Catch ex As Exception
                 Throw ex
             End Try
         End Function
         Function ToArray() As T()
-            Return List.ToArray()
+            Return Queue.ToArray()
         End Function
         Sub Clear()
             'Mutex.WaitOne()
             AutoResetEvent.WaitOne()
-            List.Clear()
+            Queue.Clear()
             GC.Collect()
             AutoResetEvent.Set()
             'Mutex.ReleaseMutex()
@@ -71,17 +62,17 @@ Namespace IO
 
         Public Property Item(ByVal index As Integer) As T
             Get
-                Return List.Item(index)
+                Return Queue.ToArray()(index)
             End Get
             Set(ByVal value As T)
-                ' Mutex.WaitOne()
-                AutoResetEvent.WaitOne()
-                List.Item(index) = value
-                AutoResetEvent.Set()
+                '' Mutex.WaitOne()
+                'AutoResetEvent.WaitOne()
+                'List.Item(index) = value
+                'AutoResetEvent.Set()
                 ' Mutex.ReleaseMutex()
+
             End Set
         End Property
-
 
         Public Sub test(ByVal count As Integer)
             Dim testmutexList As New mutexList(Of String)
@@ -101,8 +92,4 @@ Namespace IO
             M_WriteLineMaster.WriteLine("Test TotalSeconds:" + ts.TotalSeconds.ToString)
         End Sub
     End Class
-    '<ObsoleteAttribute("DLL過時，改用sunskyLibrary", False)> _
-   
-    'End Namespace
-
 End Namespace
