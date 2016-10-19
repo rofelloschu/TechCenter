@@ -43,6 +43,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -68,12 +69,14 @@
     <Compile Include="File\ParameterFile_undone.vb" />
     <Compile Include="IO\mutexList_V02.vb" />
     <Compile Include="IO\selectKeyToValue.vb" />
+    <Compile Include="IO\SQL\sql_table.vb" />
     <Compile Include="IO\WaitReviceCC.vb" />
     <Compile Include="IO\WaitSendCC.vb" />
     <Compile Include="model\IF_Comm.vb" />
     <Compile Include="model\IF_logfile.vb" />
     <Compile Include="model\IF_class.vb" />
     <Compile Include="SoftBase\M_catchException.vb" />
+    <Compile Include="SoftBase\M_Conversion.vb" />
     <Compile Include="SoftBase\M_Math.vb" />
     <Compile Include="unknown\Alarmclock.vb" />
     <Compile Include="SoftBase\M_catchException_APFile.vb" />
@@ -82,6 +85,7 @@
     <Compile Include="WinForm\ADListBox.vb" />
     <Compile Include="WinForm\checkIPToFormsControl.vb" />
     <Compile Include="WinForm\ComboBoxSelectToTabControl.vb" />
+    <Compile Include="WinForm\Comport_ComboBox.vb" />
     <Compile Include="WinForm\ControlBar.vb" />
     <Compile Include="WinForm\FormPlus.vb" />
     <Compile Include="WinForm\LogTextBox.vb" />
