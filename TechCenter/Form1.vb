@@ -40,12 +40,19 @@ Public Class Form1
         'Console.WriteLine(Asc("A"))
         'Dim a As Integer = &H1
 
-        Console.WriteLine(Now.GetHashCode.ToString)
-        Dim r As New Random()
-        Console.WriteLine(r.Next(0, 10))
-        Dim o As New Object
-        Console.WriteLine(o.GetHashCode.ToString)
-        Console.WriteLine(Guid.NewGuid().GetHashCode())
+        'Console.WriteLine(Now.GetHashCode.ToString)
+        'Dim r As New Random()
+        'Console.WriteLine(r.Next(0, 10))
+        'Dim o As New Object
+        'Console.WriteLine(o.GetHashCode.ToString)
+        'Console.WriteLine(Guid.NewGuid().GetHashCode())
+        Console.WriteLine(Me.Controls.Count.ToString)
+        Console.WriteLine(Form2.Controls.Count.ToString)
+
+        Me.Controls("OpenDir_Button").Visible = False
+        'Form2.Container()
+        getControlNames(Me)
+        getControlNames(Form2)
     End Sub
 
     Private Delegate Sub MyDelSub()
@@ -56,4 +63,25 @@ Public Class Form1
     Private Sub OpenDir_Button_Click(sender As Object, e As EventArgs) Handles OpenDir_Button.Click
         Test.M_test.OpenDir(System.IO.Directory.GetCurrentDirectory)
     End Sub
+
+    Function getControlNames(t_form As System.Windows.Forms.Form) As String()
+        't_form.Controls.Item
+        Dim return_list As New List(Of String)
+        Dim ctl As Control
+        For Each ctl In t_form.Controls
+            Console.WriteLine(ctl.Name)
+            return_list.Add(ctl.Name)
+        Next
+        Return return_list.ToArray
+    End Function
+    Function getFormControl(t_form As System.Windows.Forms.Form, name As String) As System.Windows.Forms.Form
+
+        Dim ctl As Control = Nothing
+        For Each ctl In t_form.Controls
+            If ctl.Name = name Then
+                Exit For
+            End If
+        Next
+        Return ctl
+    End Function
 End Class

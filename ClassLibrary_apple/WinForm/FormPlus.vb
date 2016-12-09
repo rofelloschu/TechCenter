@@ -1,4 +1,4 @@
-﻿'20150512
+﻿'20161122
 Namespace WinForm
     Public Class FormPlus
         Private form As System.Windows.Forms.Form
@@ -16,6 +16,31 @@ Namespace WinForm
         Sub NotifyIcon()
 
         End Sub
+
+
+        Public Shared Function getControlNames(t_Control As System.Windows.Forms.Control, Optional test As Boolean = False) As String()
+
+            Dim return_list As New List(Of String)
+            Dim ctl As System.Windows.Forms.Control
+            For Each ctl In t_Control.Controls
+                If test Then
+                    Console.WriteLine(ctl.Name)
+                End If
+                return_list.Add(ctl.Name)
+            Next
+            Return return_list.ToArray
+        End Function
+        Public Shared Function getFormControl(t_Control As System.Windows.Forms.Control, name As String) As System.Windows.Forms.Control
+            Dim return_Control As System.Windows.Forms.Control = Nothing
+
+            For Each ctl As System.Windows.Forms.Control In t_Control.Controls
+                If ctl.Name = name Then
+                    return_Control = ctl
+                    Exit For
+                End If
+            Next
+            Return return_Control
+        End Function
     End Class
 End Namespace
 

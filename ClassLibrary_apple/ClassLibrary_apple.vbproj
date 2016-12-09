@@ -73,11 +73,14 @@
     <Compile Include="IO\WaitReviceCC.vb" />
     <Compile Include="IO\WaitSendCC.vb" />
     <Compile Include="model\IF_Comm.vb" />
+    <Compile Include="model\IF_DataClass.vb" />
     <Compile Include="model\IF_logfile.vb" />
     <Compile Include="model\IF_class.vb" />
+    <Compile Include="IO\ExceptionWrite.vb" />
     <Compile Include="SoftBase\M_catchException.vb" />
     <Compile Include="SoftBase\M_Conversion.vb" />
     <Compile Include="SoftBase\M_Math.vb" />
+    <Compile Include="SoftBase\ProcessBase.vb" />
     <Compile Include="unknown\Alarmclock.vb" />
     <Compile Include="SoftBase\M_catchException_APFile.vb" />
     <Compile Include="SoftBase\M_WriteLineMaster.vb" />
