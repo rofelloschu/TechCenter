@@ -123,6 +123,8 @@
     <Compile Include="Test\IF_B.vb" />
     <Compile Include="Test\KeyboardLayout.vb" />
     <Compile Include="Test\M_LogManagement.vb" />
+    <Compile Include="Test\Reader_ANT_WDT.vb" />
+    <Compile Include="Test\timing_timer.vb" />
     <Compile Include="willdel\APFile.vb" />
     <Compile Include="willdel\mutexList.vb" />
     <Compile Include="Test\cFTP.vb" />
