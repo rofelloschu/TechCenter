@@ -1,15 +1,16 @@
 ﻿Public Interface IF_class
     Inherits IDisposable
+
 #Region "new,close,start,stop"
+
     ' Sub New()
- 
+
     Sub close()
 
-
     Sub start()
- 
+
     Sub [stop]()
-     
+
     '#Region "IDisposable Support"
     '        Private disposedValue As Boolean ' 偵測多餘的呼叫
     '    ' IDisposable
@@ -40,5 +41,7 @@
     '            GC.SuppressFinalize(Me)
     '        End Sub
     '#End Region
+
 #End Region
+
 End Interface

@@ -10,7 +10,9 @@ Public Class Comport_ComboBox
             SetComboBoxItemAdd(m_ComboBox, port_string(index))
         Next
     End Sub
+
     Delegate Sub SetComboBoxItemAddCallback(ByVal ComboBox As System.Windows.Forms.ComboBox, ByVal text As String)
+
     Private Sub SetComboBoxItemAdd(ByVal ComboBox As System.Windows.Forms.ComboBox, ByVal text As String)
         If ComboBox.InvokeRequired Then
 
@@ -20,4 +22,5 @@ Public Class Comport_ComboBox
         End If
 
     End Sub
+
 End Class

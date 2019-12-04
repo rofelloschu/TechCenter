@@ -17,9 +17,6 @@ D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.xml
 D:\john2\github\TechCenter\TechCenter\bin\Debug\TechCenter.exe
 D:\john2\github\TechCenter\TechCenter\bin\Debug\TechCenter.pdb
 D:\john2\github\TechCenter\TechCenter\bin\Debug\TechCenter.xml
-D:\john2\github\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.dll
-D:\john2\github\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.pdb
-D:\john2\github\TechCenter\TechCenter\bin\Debug\ClassLibrary_apple.xml
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.vbprojResolveAssemblyReference.cache
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Form1.resources
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Resources.resources
@@ -27,3 +24,9 @@ D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.vbproj.GenerateResour
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.exe
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.pdb
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Form2.resources
+D:\john2\github\TechCenter\TechCenter\bin\Debug\TechCenter.exe.config
+D:\john2\github\TechCenter\TechCenter\bin\Debug\classLibrary_bang.pdb
+D:\john2\github\TechCenter\TechCenter\bin\Debug\classLibrary_bang.xml
+D:\john2\github\TechCenter\TechCenter\bin\Debug\classLibrary_bang.dll
+D:\john2\github\TechCenter\TechCenter\bin\Debug\MySql.Data.dll
+D:\john2\github\TechCenter\TechCenter\bin\Debug\Newtonsoft.Json.dll

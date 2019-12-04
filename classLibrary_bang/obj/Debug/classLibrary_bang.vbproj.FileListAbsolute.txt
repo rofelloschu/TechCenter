@@ -1,0 +1,11 @@
+D:\john2\github\TechCenter\classLibrary_bang\bin\Debug\classLibrary_bang.dll.config
+D:\john2\github\TechCenter\classLibrary_bang\bin\Debug\classLibrary_bang.dll
+D:\john2\github\TechCenter\classLibrary_bang\bin\Debug\classLibrary_bang.pdb
+D:\john2\github\TechCenter\classLibrary_bang\bin\Debug\classLibrary_bang.xml
+D:\john2\github\TechCenter\classLibrary_bang\bin\Debug\mysql.data.dll
+D:\john2\github\TechCenter\classLibrary_bang\obj\Debug\classLibrary_bang.vbprojResolveAssemblyReference.cache
+D:\john2\github\TechCenter\classLibrary_bang\obj\Debug\classLibrary_bang.Resources.resources
+D:\john2\github\TechCenter\classLibrary_bang\obj\Debug\classLibrary_bang.vbproj.GenerateResource.Cache
+D:\john2\github\TechCenter\classLibrary_bang\obj\Debug\classLibrary_bang.dll
+D:\john2\github\TechCenter\classLibrary_bang\obj\Debug\classLibrary_bang.xml
+D:\john2\github\TechCenter\classLibrary_bang\obj\Debug\classLibrary_bang.pdb

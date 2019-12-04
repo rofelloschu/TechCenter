@@ -1,7 +1,9 @@
 '20140430
 
 Namespace WinForm
+    '<ObsoleteAttribute("DLL過時，改用sunskyLibrary", False)> _
     Public Class LogTextBox
+
         Delegate Sub SetTextArrayCallback(ByVal textbox As System.Windows.Forms.TextBox, ByVal text As String())
         Delegate Sub SetTextBoxSelectionStart_MaxCallback()
         Private t_textbox As System.Windows.Forms.TextBox
@@ -17,7 +19,7 @@ Namespace WinForm
             mList = New mutexList(Of String)
             Me.form = textbox.FindForm
             Me.t_textbox = textbox
-            ' Me.log = New logFile_undone(Me.t_textbox.Name + "_log", True)
+            Me.newLog = New logFile_undone(Me.t_textbox.Name + "_log", True)
             If Me.t_textbox.Lines.Length > 0 Then
                 For index As Integer = 0 To Me.t_textbox.Lines.Length - 1
                     mList.addFirst(Me.t_textbox.Lines(index))

@@ -65,7 +65,9 @@
     <Import Include="System.Diagnostics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="doc\APFile.vb" />
     <Compile Include="doc\IF_logfile.vb" />
+    <Compile Include="doc\logFile_undone.vb" />
     <Compile Include="Form\ControlBar_.vb" />
     <Compile Include="Form\LogTextBox.vb" />
     <Compile Include="Form\LogTextBox_V02.vb" />
@@ -95,6 +97,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="NewFolder1\M_catchException_APFile.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">

@@ -1,4 +1,5 @@
 ﻿'20160222
+'閱20180315
 Public Module M_Math
 #Region "亂數"
     '使用NewGuid作亂數種子
@@ -17,6 +18,7 @@ Public Module M_Math
         MsgBox(Convert.ToString(Convert.ToInt32("11", 8))) '//8進制轉10進制
         MsgBox(Convert.ToString(Convert.ToInt32("0XFF", 16))) '//16進制轉10進制
     End Sub
+
     Public Function ToHexString(ByVal value As Integer) As String
         Return value.ToString("X2")
     End Function
@@ -64,6 +66,75 @@ Public Module M_Math
         Next
         Return return_bytes
     End Function
+ 
+    Function chrToHexString(text As String) As String
+        Dim bytesString As String() = text.Split(" ")
+        Dim stringbyteslist As New List(Of Byte)
+        For index As Integer = 0 To bytesString.Length - 1
+            Try
+                stringbyteslist.Add(Convert.ToInt32("0X" + bytesString(index), 16))
+            Catch ex As Exception
+                Console.WriteLine("err " + bytesString(index))
+                stringbyteslist.Add(0)
+            End Try
+
+        Next
+        Return System.Text.Encoding.ASCII.GetString(stringbyteslist.ToArray)
+    End Function
+    <ObsoleteAttribute("感覺有問題", False)> _
+    Function HexStringToChr(text As String)
+        Dim stringbytes As Byte() = System.Text.Encoding.ASCII.GetBytes(text)
+        Dim bytesString As String = ""
+        For index As Integer = 0 To stringbytes.Length - 1
+            If index = 0 Then
+                bytesString = stringbytes(index).ToString("x2")
+            Else
+                bytesString = bytesString + " " + stringbytes(index).ToString("x2")
+            End If
+
+        Next
+        Return bytesString
+    End Function
+
+    Function HexStringToBytes(text As String) As Byte()
+        Dim len As Integer = text.Length / 2
+        Dim Hex_Byte(len - 1) As Byte
+        For index As Integer = 0 To len - 1
+            Hex_Byte(index) = HEXString_to_DEC(text.Substring(index * 2, 2))
+        Next
+        Return Hex_Byte
+    End Function
+
+    '16轉10
+    Public Function HEXString_to_DEC(ByVal Hex As String) As Long
+        Dim i As Long
+        Dim B As Long
+
+        Hex = UCase(Hex)
+        For i = 1 To Len(Hex)
+            Select Case Mid(Hex, Len(Hex) - i + 1, 1)
+                Case "0" : B = B + 16 ^ (i - 1) * 0
+                Case "1" : B = B + 16 ^ (i - 1) * 1
+                Case "2" : B = B + 16 ^ (i - 1) * 2
+                Case "3" : B = B + 16 ^ (i - 1) * 3
+                Case "4" : B = B + 16 ^ (i - 1) * 4
+                Case "5" : B = B + 16 ^ (i - 1) * 5
+                Case "6" : B = B + 16 ^ (i - 1) * 6
+                Case "7" : B = B + 16 ^ (i - 1) * 7
+                Case "8" : B = B + 16 ^ (i - 1) * 8
+                Case "9" : B = B + 16 ^ (i - 1) * 9
+                Case "A" : B = B + 16 ^ (i - 1) * 10
+                Case "B" : B = B + 16 ^ (i - 1) * 11
+                Case "C" : B = B + 16 ^ (i - 1) * 12
+                Case "D" : B = B + 16 ^ (i - 1) * 13
+                Case "E" : B = B + 16 ^ (i - 1) * 14
+                Case "F" : B = B + 16 ^ (i - 1) * 15
+            End Select
+        Next i
+        HEXString_to_DEC = B
+    End Function
+#End Region
+#Region "數字文字轉換 test"
     ' 10進制轉成2、8、16進制
     '1
     'j=Convert.ToString(10, 2)        '10進制轉2進制     j="1010"
@@ -86,6 +157,7 @@ Public Module M_Math
 
     'test
     '10轉2
+    <ObsoleteAttribute("未測試", False)> _
     Public Function DEC_to_BINString(ByVal Dec As Long) As String
         DEC_to_BINString = ""
         Do While Dec > 0
@@ -94,6 +166,7 @@ Public Module M_Math
         Loop
     End Function
     '2轉10
+    <ObsoleteAttribute("未測試", False)> _
     Public Function BINString_to_DEC(ByVal Bin As String) As Long
         Dim i As Long
         For i = 1 To Len(Bin)
@@ -101,6 +174,7 @@ Public Module M_Math
         Next i
     End Function
     '16轉2
+    <ObsoleteAttribute("未測試", False)> _
     Public Function HEX_to_BIN(ByVal Hex As String) As String
         Dim i As Long
         Dim B As String = ""
@@ -165,36 +239,12 @@ Public Module M_Math
     '    End While
     '    BIN_to_HEX = H
     'End Function
-    '16轉10
-    '16轉10
-    Public Function HEXString_to_DEC(ByVal Hex As String) As Long
-        Dim i As Long
-        Dim B As Long
 
-        Hex = UCase(Hex)
-        For i = 1 To Len(Hex)
-            Select Case Mid(Hex, Len(Hex) - i + 1, 1)
-                Case "0" : B = B + 16 ^ (i - 1) * 0
-                Case "1" : B = B + 16 ^ (i - 1) * 1
-                Case "2" : B = B + 16 ^ (i - 1) * 2
-                Case "3" : B = B + 16 ^ (i - 1) * 3
-                Case "4" : B = B + 16 ^ (i - 1) * 4
-                Case "5" : B = B + 16 ^ (i - 1) * 5
-                Case "6" : B = B + 16 ^ (i - 1) * 6
-                Case "7" : B = B + 16 ^ (i - 1) * 7
-                Case "8" : B = B + 16 ^ (i - 1) * 8
-                Case "9" : B = B + 16 ^ (i - 1) * 9
-                Case "A" : B = B + 16 ^ (i - 1) * 10
-                Case "B" : B = B + 16 ^ (i - 1) * 11
-                Case "C" : B = B + 16 ^ (i - 1) * 12
-                Case "D" : B = B + 16 ^ (i - 1) * 13
-                Case "E" : B = B + 16 ^ (i - 1) * 14
-                Case "F" : B = B + 16 ^ (i - 1) * 15
-            End Select
-        Next i
-        HEXString_to_DEC = B
-    End Function
+
+
+    
     '10轉16
+    <ObsoleteAttribute("未測試", False)> _
     Public Function DEC_to_HEXString(ByVal Dec As Long) As String
         Dim a As String
         DEC_to_HEXString = ""
@@ -213,6 +263,7 @@ Public Module M_Math
         Loop
     End Function
     '10轉8
+    <ObsoleteAttribute("未測試", False)> _
     Public Function DEC_to_OCT(ByVal Dec As Long) As String
         DEC_to_OCT = ""
         Do While Dec > 0
@@ -221,6 +272,7 @@ Public Module M_Math
         Loop
     End Function
     '8轉10
+    <ObsoleteAttribute("未測試", False)> _
     Public Function OCT_to_DEC(ByVal Oct As String) As Long
         Dim i As Long
         Dim B As Long
@@ -265,6 +317,7 @@ Public Module M_Math
     '    BIN_to_OCT = H
     'End Function
     '8轉2
+    <ObsoleteAttribute("未測試", False)> _
     Public Function OCT_to_BIN(ByVal Oct As String) As String
         Dim i As Long
         Dim B As String = ""
@@ -301,35 +354,6 @@ Public Module M_Math
     '    Bin = HEX_to_BIN(Hex)
     '    HEX_to_OCT = BIN_to_OCT(Bin)
     'End Function
-    Function chrToHexString(text As String) As String
-        Dim bytesString As String() = text.Split(" ")
-        Dim stringbyteslist As New List(Of Byte)
-        For index As Integer = 0 To bytesString.Length - 1
-            Try
-                stringbyteslist.Add(Convert.ToInt32("0X" + bytesString(index), 16))
-            Catch ex As Exception
-                Console.WriteLine("err " + bytesString(index))
-                stringbyteslist.Add(0)
-            End Try
-
-        Next
-        Return System.Text.Encoding.ASCII.GetString(stringbyteslist.ToArray)
-    End Function
-    Function HexStringToChr(text As String)
-        Dim stringbytes As Byte() = System.Text.Encoding.ASCII.GetBytes(text)
-        Dim bytesString As String = ""
-        For index As Integer = 0 To stringbytes.Length - 1
-            If index = 0 Then
-                bytesString = stringbytes(index).ToString("x2")
-            Else
-                bytesString = bytesString + " " + stringbytes(index).ToString("x2")
-            End If
-
-        Next
-        Return bytesString
-    End Function
-
 #End Region
-
  
 End Module

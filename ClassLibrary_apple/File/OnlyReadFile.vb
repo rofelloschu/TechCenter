@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿'20180328閱
+Imports System.IO
 Imports System.Threading
 Class OnlyReadFile
     Implements IDisposable
