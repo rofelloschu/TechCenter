@@ -11,7 +11,7 @@
     <AssemblyName>TechCenter</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <PublishUrl>發行\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,6 +27,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -37,6 +38,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>TechCenter.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -47,6 +49,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>TechCenter.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -64,6 +67,14 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="mysql.data, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\classLibrary_bang\sql\mysql.data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\json\net35\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -83,9 +94,60 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
-    <Compile Include="Create\IF_Tube.vb" />
-    <Compile Include="Create\M_Tube.vb" />
-    <Compile Include="Create\Tube.vb" />
+    <Compile Include="new2_\I_mb\code_i.vb" />
+    <Compile Include="new2_\I_mb\code_i_mb.vb" />
+    <Compile Include="new2_\I_mb\IF_body.vb" />
+    <Compile Include="new2_\I_mb\IF_memory.vb" />
+    <Compile Include="new2_\I_mb\IF_think.vb" />
+    <Compile Include="new2_\I_mb\think01.vb" />
+    <Compile Include="new2_\objDatabase\objDatabase.vb" />
+    <Compile Include="new2_\objDatabase\tagdata.vb" />
+    <Compile Include="new\appDiary.vb" />
+    <Compile Include="new\json\json_seach.vb" />
+    <Compile Include="new\json\parameterTofile_json.vb" />
+    <Compile Include="new\json\vd_xml\vd2.vb" />
+    <Compile Include="new\json\vd_xml\lanedata.vb" />
+    <Compile Include="new\json\vd_xml\vd.vb" />
+    <Compile Include="new\json\use_jsonToXml.vb" />
+    <Compile Include="new\json\vd_xml\vddata.vb" />
+    <Compile Include="new\RSunraydata\seachSunrayData.vb" />
+    <Compile Include="new\RSunraydata\seachSunrayData2.vb" />
+    <Compile Include="new\sleep.vb" />
+    <Compile Include="new\tools\comm\udpserver_lock_sp.vb" />
+    <Compile Include="new\tools\comm\Work_Ping2.vb" />
+    <Compile Include="new\tools\comm\Work_Ping2_auto.vb" />
+    <Compile Include="new\tools\file\arrayParameters_SL.vb" />
+    <Compile Include="new\tools\file\IF_arrayParameters.vb" />
+    <Compile Include="new\tools\M_test_p.vb" />
+    <Compile Include="new\tools\web\html_text.vb" />
+    <Compile Include="new\tools\web\HttpForm.vb" />
+    <Compile Include="new\tools\web\web_req_res.vb" />
+    <Compile Include="new\tools\web\web_.vb" />
+    <Compile Include="new\tools\web\web_C.vb" />
+    <Compile Include="new\tools\web\web_Request.vb" />
+    <Compile Include="new\tools\web\web_Response.vb" />
+    <Compile Include="new\RSunraydata\guessSunrayData.vb" />
+    <Compile Include="new\RSunraydata\test\M_dubug.vb" />
+    <Compile Include="new\tools\autoCount.vb" />
+    <Compile Include="new\tools\data\Received_data.vb" />
+    <Compile Include="new\RSunraydata\historySunrayData_day.vb" />
+    <Compile Include="new\RSunraydata\historySunrayData_min.vb" />
+    <Compile Include="new\RSunraydata\save_historySunrayData.vb" />
+    <Compile Include="new\RSunraydata\sunray_format_FFF3.vb" />
+    <Compile Include="new\tools\file\IF_Parameter.vb" />
+    <Compile Include="new\tools\file\M_log.vb" />
+    <Compile Include="new\tools\file\parameters_SL_dict.vb" />
+    <Compile Include="new\RSunraydata\sunray_format_FFF9.vb" />
+    <Compile Include="new\RSunraydata\test\test_useFFF3.vb" />
+    <Compile Include="new\tools\threadList.vb" />
+    <Compile Include="new\vddata\vd_sunray.vb" />
+    <Compile Include="test\deleteFile_cycle.vb" />
+    <Compile Include="test\morningcall.vb" />
+    <Compile Include="willdel\APFile.vb" />
+    <Compile Include="willdel\Create\IF_Tube.vb" />
+    <Compile Include="willdel\Create\M_Tube.vb" />
+    <Compile Include="willdel\Create\theTimer.vb" />
+    <Compile Include="willdel\Create\Tube.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -115,65 +177,55 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Create\differentValueRecord.vb" />
-    <Compile Include="Create\TC_FaultDetection.vb" />
-    <Compile Include="other\Model\M_Math.vb" />
-    <Compile Include="Test\ClassC.vb" />
-    <Compile Include="Test\IF_A.vb" />
-    <Compile Include="Test\IF_B.vb" />
-    <Compile Include="Test\KeyboardLayout.vb" />
-    <Compile Include="Test\M_LogManagement.vb" />
-    <Compile Include="Test\Reader_ANT_WDT.vb" />
-    <Compile Include="Test\timing_timer.vb" />
-    <Compile Include="willdel\APFile.vb" />
-    <Compile Include="willdel\mutexList.vb" />
-    <Compile Include="Test\cFTP.vb" />
-    <Compile Include="Test\ComTest.vb" />
-    <Compile Include="Test\ConvertToAny.vb" />
-    <Compile Include="Test\CRC.vb" />
+    <Compile Include="new\differentValueRecord.vb" />
+    <Compile Include="willdel\Create\TC_FaultDetection.vb" />
+    <Compile Include="willdel\Test\ClassC.vb" />
+    <Compile Include="willdel\Test\IF_A.vb" />
+    <Compile Include="willdel\Test\IF_B.vb" />
+    <Compile Include="willdel\Test\KeyboardLayout.vb" />
+    <Compile Include="willdel\Test\M_LogManagement.vb" />
+    <Compile Include="willdel\Test\Reader_ANT_WDT.vb" />
+    <Compile Include="willdel\Create\timing_timer.vb" />
+    <Compile Include="willdel\Test\cFTP.vb" />
+    <Compile Include="willdel\Test\ComTest.vb" />
+    <Compile Include="willdel\Test\ConvertToAny.vb" />
+    <Compile Include="willdel\Test\CRC.vb" />
     <Compile Include="willdel\IF_logfile.vb" />
-    <Compile Include="Test\FtpClient.vb" />
-    <Compile Include="Test\IcmpPacket.vb" />
-    <Compile Include="Test\Interface\IF_autoUpdata.vb" />
-    <Compile Include="Test\model\M_Class1.vb" />
-    <Compile Include="Test\OnlyOne.vb" />
-    <Compile Include="Test\SendMail.vb" />
-    <Compile Include="Test\Simple Ping.vb" />
-    <Compile Include="Test\TestAttribute.vb" />
-    <Compile Include="Test\MyTimer.vb" />
-    <Compile Include="other\xmlPFile.vb" />
-    <Compile Include="other\base\If_baseClass.vb" />
-    <Compile Include="other\Comm\Class1.vb" />
-    <Compile Include="other\Comm\ComPortSocket.vb" />
-    <Compile Include="other\Comm\IF_Communication.vb" />
-    <Compile Include="other\Comm\M_ClientReadWork.vb" />
-    <Compile Include="other\Comm\StateObject.vb" />
-    <Compile Include="other\Comm\TcpServer\TcpServer3_Client.vb" />
-    <Compile Include="other\Comm\TcpServer\TcpServer3_Listener.vb" />
-    <Compile Include="other\Comm\TcpSocket.vb" />
-    <Compile Include="other\Comm\TcpSocket2.vb" />
-    <Compile Include="willdel\LogTextBox.vb" />
-    <Compile Include="other\Form\ParameterToComboBox.vb" />
-    <Compile Include="other\Model\Module1.vb" />
-    <Compile Include="other\Model\M_ArraySum.vb" />
+    <Compile Include="willdel\Test\FtpClient.vb" />
+    <Compile Include="willdel\Test\Interface\IF_autoUpdata.vb" />
+    <Compile Include="willdel\Test\model\M_Class1.vb" />
+    <Compile Include="willdel\Test\OnlyOne.vb" />
+    <Compile Include="willdel\Test\Simple Ping.vb" />
+    <Compile Include="willdel\Test\TestAttribute.vb" />
+    <Compile Include="willdel\Test\MyTimer.vb" />
+    <Compile Include="new\tools\file\xmlPFile.vb" />
+    <Compile Include="willdel\other\base\If_baseClass.vb" />
+    <Compile Include="willdel\other\Comm\ComPortSocket.vb" />
+    <Compile Include="willdel\other\Comm\StateObject.vb" />
+    <Compile Include="willdel\other\Comm\TcpServer\TcpServer3_Client.vb" />
+    <Compile Include="willdel\other\Comm\TcpServer\TcpServer3_Listener.vb" />
+    <Compile Include="willdel\other\Comm\TcpSocket.vb" />
+    <Compile Include="willdel\other\Comm\TcpSocket2.vb" />
+    <Compile Include="willdel\other\Form\ParameterToComboBox.vb" />
+    <Compile Include="willdel\other\Model\Module1.vb" />
+    <Compile Include="willdel\other\Model\M_ArraySum.vb" />
     <Compile Include="willdel\M_catchException.vb" />
-    <Compile Include="other\Model\M_EncodingDefault.vb" />
-    <Compile Include="other\Model\M_other.vb" />
+    <Compile Include="willdel\other\Model\M_other.vb" />
     <Compile Include="willdel\M_WriteLineMaster.vb" />
-    <Compile Include="other\Model\Version.vb" />
-    <Compile Include="other\ParameterFile.vb" />
-    <Compile Include="other\SwitchParameter.vb" />
-    <Compile Include="Test\model\M_test.vb" />
-    <Compile Include="other\WatchTimer.vb" />
-    <Compile Include="Test\testConsole.vb" />
-    <Compile Include="Test\testevent.vb" />
-    <Compile Include="Test\testListArrayTime.vb" />
-    <Compile Include="Test\ThreadFunction.vb" />
-    <Compile Include="Test\usePing.vb" />
+    <Compile Include="willdel\other\Model\Version.vb" />
+    <Compile Include="willdel\other\SwitchParameter.vb" />
+    <Compile Include="willdel\Test\model\M_test.vb" />
+    <Compile Include="willdel\other\WatchTimer.vb" />
+    <Compile Include="willdel\Test\testConsole.vb" />
+    <Compile Include="willdel\Test\testevent.vb" />
+    <Compile Include="willdel\Test\testListArrayTime.vb" />
+    <Compile Include="willdel\Test\ThreadFunction.vb" />
+    <Compile Include="new\tools\comm\usePing.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
@@ -186,6 +238,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -198,15 +251,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="other\test\" />
-    <Folder Include="Test\doc\" />
-    <Folder Include="Test\form\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary_apple\ClassLibrary_apple.vbproj">
-      <Project>{8ad1a513-8c8b-48be-bf54-8b0a80ffedfc}</Project>
-      <Name>ClassLibrary_apple</Name>
-    </ProjectReference>
+    <Folder Include="complete\" />
+    <Folder Include="new\converter\" />
+    <Folder Include="willdel\other\test\" />
+    <Folder Include="willdel\Test\doc\" />
+    <Folder Include="willdel\Test\form\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -219,6 +268,18 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\classLibrary_bang\classLibrary_bang.vbproj">
+      <Project>{f3a54d12-a343-4d25-9bb6-59fb4e7d5198}</Project>
+      <Name>classLibrary_bang</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Newtonsoft.Json.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

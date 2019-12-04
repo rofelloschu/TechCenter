@@ -10,7 +10,8 @@
     <AssemblyName>ClassLibrary_apple</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Windows</MyType>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -20,6 +21,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>ClassLibrary_apple.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>ClassLibrary_apple.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -46,6 +49,7 @@
     <Reference Include="MySql.Data, Version=6.8.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -61,14 +65,15 @@
     <Compile Include="File\APFile.vb" />
     <Compile Include="File\csvWrite_undone.vb" />
     <Compile Include="File\csvFile_undone.vb" />
+    <Compile Include="File\ErrlogFile.vb" />
     <Compile Include="File\FileReadAndWrite.vb" />
+    <Compile Include="File\logFile2.vb" />
     <Compile Include="File\logFile_undone.vb" />
     <Compile Include="File\OnlyReadFile.vb" />
     <Compile Include="File\OnlyWriteFile.vb" />
     <Compile Include="File\ParameterArrayFile_undone.vb" />
     <Compile Include="File\ParameterFile_undone.vb" />
     <Compile Include="IO\mutexList_V02.vb" />
-    <Compile Include="IO\selectKeyToValue.vb" />
     <Compile Include="IO\SQL\sql_table.vb" />
     <Compile Include="IO\WaitReviceCC.vb" />
     <Compile Include="IO\WaitSendCC.vb" />
@@ -77,10 +82,12 @@
     <Compile Include="model\IF_logfile.vb" />
     <Compile Include="model\IF_class.vb" />
     <Compile Include="IO\ExceptionWrite.vb" />
+    <Compile Include="SoftBase\M_Form_Delegate.vb" />
     <Compile Include="SoftBase\M_catchException.vb" />
     <Compile Include="SoftBase\M_Conversion.vb" />
     <Compile Include="SoftBase\M_Math.vb" />
     <Compile Include="SoftBase\ProcessBase.vb" />
+    <Compile Include="time\eventClock_sec.vb" />
     <Compile Include="unknown\Alarmclock.vb" />
     <Compile Include="SoftBase\M_catchException_APFile.vb" />
     <Compile Include="SoftBase\M_WriteLineMaster.vb" />
@@ -90,6 +97,7 @@
     <Compile Include="WinForm\ComboBoxSelectToTabControl.vb" />
     <Compile Include="WinForm\Comport_ComboBox.vb" />
     <Compile Include="WinForm\ControlBar.vb" />
+    <Compile Include="WinForm\Delegate\Delegate_TextBox.vb" />
     <Compile Include="WinForm\FormPlus.vb" />
     <Compile Include="WinForm\LogTextBox.vb" />
     <Compile Include="WinForm\LogTextBox_V02.vb" />
@@ -109,6 +117,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="WinForm\Previous_Next_FlowLayoutPanel.vb" />
+    <Compile Include="Parameter\selectKeyToValue.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -129,7 +139,6 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

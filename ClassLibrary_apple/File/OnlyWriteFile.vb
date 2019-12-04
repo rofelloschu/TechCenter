@@ -1,4 +1,5 @@
-﻿Class OnlyWriteFile
+﻿'20180328閱
+Class OnlyWriteFile
     Implements IDisposable
     Private disposedValue As Boolean = False        ' 偵測多餘的呼叫
 

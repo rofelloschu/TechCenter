@@ -1,4 +1,5 @@
 ﻿'20151126
+'閱20180315
 Public Module M_Math
 #Region "亂數"
     '使用NewGuid作亂數種子
