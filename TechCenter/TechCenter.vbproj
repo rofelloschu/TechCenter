@@ -79,6 +79,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -94,6 +95,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="Form\Form_deleteFile\Form_deleteFile.Designer.vb">
+      <DependentUpon>Form_deleteFile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\Form_deleteFile\Form_deleteFile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\Form_RSA\Form_RSA_core.vb" />
     <Compile Include="new2_\I_mb\code_i.vb" />
     <Compile Include="new2_\I_mb\code_i_mb.vb" />
     <Compile Include="new2_\I_mb\IF_body.vb" />
@@ -103,6 +111,7 @@
     <Compile Include="new2_\objDatabase\objDatabase.vb" />
     <Compile Include="new2_\objDatabase\tagdata.vb" />
     <Compile Include="new\appDiary.vb" />
+    <Compile Include="new\IniToDict.vb" />
     <Compile Include="new\json\json_seach.vb" />
     <Compile Include="new\json\parameterTofile_json.vb" />
     <Compile Include="new\json\vd_xml\vd2.vb" />
@@ -110,6 +119,11 @@
     <Compile Include="new\json\vd_xml\vd.vb" />
     <Compile Include="new\json\use_jsonToXml.vb" />
     <Compile Include="new\json\vd_xml\vddata.vb" />
+    <Compile Include="new\life\life.vb" />
+    <Compile Include="new\MyDataGridView.vb" />
+    <Compile Include="new\RSA\myRSA.vb" />
+    <Compile Include="new\RSA\SunSkyActivator.vb" />
+    <Compile Include="new\RSA\SunSkyActivator2.vb" />
     <Compile Include="new\RSunraydata\seachSunrayData.vb" />
     <Compile Include="new\RSunraydata\seachSunrayData2.vb" />
     <Compile Include="new\sleep.vb" />
@@ -142,7 +156,10 @@
     <Compile Include="new\tools\threadList.vb" />
     <Compile Include="new\vddata\vd_sunray.vb" />
     <Compile Include="test\deleteFile_cycle.vb" />
-    <Compile Include="test\morningcall.vb" />
+    <Compile Include="test\cycle_min.vb" />
+    <Compile Include="test\pipe\PipeClient.vb" />
+    <Compile Include="test\pipe\PipeServer.vb" />
+    <Compile Include="test\test_assmbly.vb" />
     <Compile Include="willdel\APFile.vb" />
     <Compile Include="willdel\Create\IF_Tube.vb" />
     <Compile Include="willdel\Create\M_Tube.vb" />
@@ -155,10 +172,10 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="Form\Form_RSA\Form_RSA.Designer.vb">
+      <DependentUpon>Form_RSA.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="Form\Form_RSA\Form_RSA.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="help.vb" />
@@ -166,11 +183,6 @@
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\Settings.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -227,12 +239,15 @@
       <DependentUpon>Form1.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="Form\Form_deleteFile\Form_deleteFile.resx">
+      <DependentUpon>Form_deleteFile.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\Form_RSA\Form_RSA.resx">
+      <DependentUpon>Form_RSA.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -252,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="complete\" />
+    <Folder Include="Form\Form_RSA2\" />
     <Folder Include="new\converter\" />
     <Folder Include="willdel\other\test\" />
     <Folder Include="willdel\Test\doc\" />

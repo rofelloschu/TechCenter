@@ -206,3 +206,14 @@ Public Class serverSocket
 #End Region
 
 End Class
+Public Class serverSocket_use
+    Sub New()
+
+    End Sub
+
+    Sub test01()
+        Dim serverSocket As serverSocket = New serverSocket
+        serverSocket.setConnect("127.0.0.1", 10001)
+        serverSocket.start()
+    End Sub
+End Class

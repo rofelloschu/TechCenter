@@ -70,6 +70,11 @@ Public Class ProcessBase
         End If
     End Sub
 #End Region
+
+    
+   
 End Class
+
+
 'M_UIException_Write
 

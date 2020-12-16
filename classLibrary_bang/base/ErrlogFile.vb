@@ -1,5 +1,5 @@
 ﻿'20171002
-'20180328閱
+'20200609 errbox
 Imports System.IO
 Imports System.Threading
 Public Class ErrlogFile
@@ -14,6 +14,7 @@ Public Class ErrlogFile
     Private m_FilePath As String
 
     Private AutoResetEvent As AutoResetEvent = New AutoResetEvent(True)
+    Public errbox As Boolean = True
     Sub New(ByVal t_fileNmae As String, ByVal t_isHaveTime As Boolean, Optional ByVal t_directory As String = "")
         '檔名
         Me.m_FileName = t_fileNmae
@@ -70,8 +71,15 @@ Public Class ErrlogFile
             sw.Write(text & sw.NewLine)
             sw.Close()
         Catch ex As Exception
+            If errbox Then
+                MsgBox(m_FilePath + " [Writte Exception] " + ex.ToString)
+            Else
+                Dim sw As New StreamWriter(m_FilePath + "_err.txt", True, Encoding)
+                Dim text As String = m_FilePath + " [Writte Exception] " + ex.ToString
+                sw.Write(text & sw.NewLine)
+                sw.Close()
+            End If
 
-            MsgBox(m_FilePath + " [Writte Exception] " + ex.ToString)
 
         Finally
             AutoResetEvent.Set()
@@ -90,8 +98,15 @@ Public Class ErrlogFile
             sw.Write(text & sw.NewLine)
             sw.Close()
         Catch ex As Exception
-
-            MsgBox(m_FilePath + " [errWritr Exception] " + ex.ToString)
+             
+            If errbox Then
+                MsgBox(m_FilePath + " [errWritr Exception] " + ex.ToString)
+            Else
+                Dim sw As New StreamWriter(m_FilePath + "_err.txt", True, Encoding)
+                Dim text As String = m_FilePath + " [Writte Exception] " + ex.ToString
+                sw.Write(text & sw.NewLine)
+                sw.Close()
+            End If
 
         Finally
             AutoResetEvent.Set()

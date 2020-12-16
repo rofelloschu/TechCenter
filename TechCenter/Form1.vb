@@ -15,25 +15,43 @@ Public Class Form1
 
         ' 在 InitializeComponent() 呼叫之後加入任何初始設定。
         'testFF = New test_useFFF3()
+        Dim t As String = "VI"
+        Dim tt01 As String = "VI2"
+        Dim tt02 As String = "VI"
+        Dim ttt As New List(Of String)
+        ttt.Add(tt01)
+        Console.WriteLine(ttt.Contains(tt01.ToUpper()).ToString)
+        Console.WriteLine(ttt.Contains(tt02.ToUpper()).ToString)
+        Console.WriteLine(tt01.Contains(t.ToUpper()).ToString)
+        Console.WriteLine(tt02.Contains(t.ToUpper()).ToString)
+        Console.WriteLine(tt01.StartsWith(t.ToUpper(), StringComparison.InvariantCultureIgnoreCase).ToString)
+        Console.WriteLine(tt02.StartsWith(t.ToUpper(), StringComparison.InvariantCultureIgnoreCase).ToString)
+        Console.WriteLine(tt02.Contains(tt01).ToString)
+        Console.WriteLine(tt01.Contains(tt02).ToString)
+        Console.WriteLine(tt02.StartsWith(tt01.ToUpper(), StringComparison.InvariantCultureIgnoreCase).ToString)
+        Console.WriteLine(tt01.StartsWith(tt02.ToUpper(), StringComparison.InvariantCultureIgnoreCase).ToString)
+
     End Sub
     ' Private TC_FaultDetection As New TC_FaultDetection("test01", True)
     Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         'If testFF Is Nothing Then
         '    testFF.close()
         'End If
-
-    End Sub
+         End Sub
     Private differentValueRecord As New differentValueRecord("test02", True)
     Private testFF As test_useFFF3
      
  
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        'Dim PipeServer As New PipeServer
+        PipeClient_onlyWrite.write("testpipe", TextBox1.Text)
+        'PipeClient.Main2(Nothing)
         'Dim appDiary As New appDiary
-        Dim p As New usePing
-        p.testPing("8.8.8.8")
-        p.testPing("1.1.1.1")
-        p.testPing("61.219.246.61")
-        p.testPing("168.95.192.1")
+        'Dim p As New usePing
+        'p.testPing("8.8.8.8")
+        'p.testPing("1.1.1.1")
+        'p.testPing("61.219.246.61")
+        'p.testPing("168.95.192.1")
         'Dim a As New Dictionary(Of String, Object)
         'a.Add("123", "123")
         'Dim b As New Dictionary(Of String, Object)
@@ -338,61 +356,93 @@ Public Class Form1
     'Dim a As eventClock_sec
     Public udpclient As udpserver_lock_sp
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Console.WriteLine("now " + Now.ToString)
-        Dim a As New cycle_run(AddressOf time)
+        Dim a As String = "<RSAKeyValue><Modulus>r8mqGB1lorKan2BkpgUKK4lDtjKIQ5QAlDLt0MhWCRvcbEkfOg7+dyDJMybAHee+qR4cTS5y3CduH1fbmz4WMUS90WJrzLCGCUfAoJU017s+TvCdJtZLZplQKSs/6THufQ7cvkNuU+SAOMWVQz+xXvAUHYgZ7QLzCKi0+KoBWewGkQjZuYZx98ppzIkedgwaJCnNZR+7kH9I9pZySGcJSP+vp5/vSSlS8Q1Aucupu+AaasPpNbkUVx/w3/6cQv61</Modulus><Exponent>AQAB</Exponent><P>3Eu6z0VzBnEECL+IEVdKG+avv3fpod0S6lu27N1hb2uzoX5Qh6DhPscXMsF0Z6l4m96oIESJ0SDS7wX/EO97URfuJaacfP8C94wWm6YxCwnMTacNCSuLf8FRb87vk++b</P><Q>zEdBVwwWIz1jkk993xdNnKTNZmQMLaSwWU4HTJ7WX/+yZR6j0aBzzOGEATbWFDL3SGZyX+WsTaRhtZgbHsjQW9cB5HlNT/v20DhIGLj72Y7yu4TsIRVMXL/0kmyCxDfv</Q><DP>M2mdJIiByswPc/c3S0zC5/YTqCzVIsiUhIt5Cpi0B6vsFVGEe9LJHryaJmdNwm+jzUTOmhFE1MDDWbNdjtdFQWzDUJgsx2NAjwNrt1G2+muD+c911GEMQnmchuqVsUHn</DP><DQ>xDfBnIKAlTL3fOecSXlR1KA8qBh71i/2MKIRwthjpOywiA8JXmdYNDl+mcf5lIdsHgBB5rlva1j1ff/wNP7BnSYGrFaUG7sz1cfqAM1XJR/5KoRAaHrT0deUbj2K0j3D</DQ><InverseQ>WYzhczJo9sYCC0p12TORzUMCFOrwel8aSmTkwDGGyMaxKt6osux1s44w/p2+rii0UzT8kOgjrn04FjeXvHn3+ITELou+5rhwWwd3cnpeX7MSTodFyPkO7NMnzL0b8/Pc</InverseQ><D>W1r3rd6hMkOVvdwvkmQuG+ATM33heRVSk7JAC3AB3mv/SrtZoiemsSx1w8KQtzn3yRYf6TCJesZ3IYzcUTqb9/DcoROAKHlYvzvt7MZ+Ftt1jzrWwRc/SkvE8BBM/5j1lpvmZbDNwvkoI9Z7d7O5m9LM7lwkzLyVodBLVaGrCvK7/BQEudpRJJqRLpKdx3i8BsaI/hpmxmrJIqxoxDMT0SaXHngo4ZeIuL7qz5zI6GxqHjcDBkLvU15gOC2z/Brl</D></RSAKeyValue>"
+        'Dim b As String = "Parking.xml"
+        'Dim text As String = System.IO.File.ReadAllText(b)
 
-        'Dim udp_par As New Udp_par
-        'udp_par.client_ip = "127.0.0.1"
-        'udp_par.client_port = 10001
-        'udp_par.server_ip = "127.0.0.1"
-        'udp_par.server_port = 40002
-        'udpclient = New udpserver_lock_sp(udp_par)
-        'udpclient.StartProc()
+        Dim bb01 As String = "<p0>J0GfaTCoAuva+kyi+BV+ubJ7fq5/7P6fqc635abpm7Rpx3qkN7StBPMuPP4y27OqKAI/b6j6pREuCU7cPjlx9QUwSyjZ1Rr7gv1F8LnF8M3CFr012lwBdxbU+XyoANCtaMcdtcMtdKNkAARlTVS4DdMQWPkgN49iBCbxtRc4viZJ7QJERQVPddFfU8zaRTS+hsqRqPyHZru16lx1LxB/YVRR2Q4ujKvAUV17Gzcu8g7mNhDfo4d7bGVQ2l+vt1hY</p0>"
+        Dim bb02 As String = "<p1>jbxe91JV2fotWJXMFhiWero5uGUVx+cFcewPpXJ0GkMllKGsyn1ea8zMoaP9YVgS5C5xHOJGT9eT8qihCThyvkRlQR6QtDluu5BpdEfQjTCqzJ19Mrqwhn941mjfZdkr2wxY2yzyfKXMvxpHSmqn4eGp6SKKTOkRSgWuZ5bSWpl9FGbEq5CY1at8H6LUB8w1qveB5oAunuaquRjqIWNtimcUUin2tPG29rtAuEQ2hHeyTxTW6M5sL+yAwf1lf10d</p1>"
+        Dim c As String = myRSA._RSADecrypt_2(bb01, a)
 
-        'delAllTxt()
-        'Console.WriteLine(CInt("4.33").ToString)
-        'Dim a As New test_seachweb
+ 
+            'Dim c As String = myRSA._RSADecrypt_xml(b, a)
+        Console.WriteLine(c)
+        c = myRSA._RSADecrypt_2(bb02, a)
+        Console.WriteLine(c)
+        'c = myRSA._RSADecrypt_xml(text, a)
+            'Console.WriteLine(c)
+            'Console.WriteLine("now " + Now.ToString)
+            'Dim a As New cycle_run(AddressOf time)
 
-        'test_Reader_ANT_WDT.Set_getData()
-        ''ResetCurrentLog2(testTime)
-        'Dim tmp_st As String = ""
-        'Dim tmp_end As String = ""
-        'Dim play_lst As String = "[4-9-7][10-15-35]"
-        'tmp_st = play_lst.Substring(1, play_lst.IndexOf("-") - 1)
-        'Console.WriteLine("tmp_st " + tmp_st)
-        'play_lst = play_lst.Substring(play_lst.IndexOf("-") + 1, play_lst.Length - play_lst.IndexOf("-") - 1)
-        'Console.WriteLine("now play_lst " + play_lst)
-        'tmp_end = play_lst.Substring(0, play_lst.IndexOf("-"))
-        'Console.WriteLine("tmp_end " + tmp_end)
-        'a = New eventClock_sec(60)
+            'Dim udp_par As New Udp_par
+            'udp_par.client_ip = "127.0.0.1"
+            'udp_par.client_port = 10001
+            'udp_par.server_ip = "127.0.0.1"
+            'udp_par.server_port = 40002
+            'udpclient = New udpserver_lock_sp(udp_par)
+            'udpclient.StartProc()
+
+            'delAllTxt()
+            'Console.WriteLine(CInt("4.33").ToString)
+            'Dim a As New test_seachweb
+
+            'test_Reader_ANT_WDT.Set_getData()
+            ''ResetCurrentLog2(testTime)
+            'Dim tmp_st As String = ""
+            'Dim tmp_end As String = ""
+            'Dim play_lst As String = "[4-9-7][10-15-35]"
+            'tmp_st = play_lst.Substring(1, play_lst.IndexOf("-") - 1)
+            'Console.WriteLine("tmp_st " + tmp_st)
+            'play_lst = play_lst.Substring(play_lst.IndexOf("-") + 1, play_lst.Length - play_lst.IndexOf("-") - 1)
+            'Console.WriteLine("now play_lst " + play_lst)
+            'tmp_end = play_lst.Substring(0, play_lst.IndexOf("-"))
+            'Console.WriteLine("tmp_end " + tmp_end)
+            'a = New eventClock_sec(60)
 
 
-        'Dim parameters_SL As New parameters_SL
-        'parameters_SL.init()
-        'parameters_SL.readFile()
-        'parameters_SL.addParameters("a", Now.ToString("u"))
-        'parameters_SL.addParameters("b", Now.ToString())
-        'parameters_SL.saveFile()
-        'parameters_SL.readFile()
+            'Dim parameters_SL As New parameters_SL
+            'parameters_SL.init()
+            'parameters_SL.readFile()
+            'parameters_SL.addParameters("a", Now.ToString("u"))
+            'parameters_SL.addParameters("b", Now.ToString())
+            'parameters_SL.saveFile()
+            'parameters_SL.readFile()
 
-        'Dim a As New List(Of Byte)
-        'a.Add(&HFF)
-        'a.Add(&HF3)
-        'a.Add(&H3)
-        'a.Add(&H1)
-        'a.Add(&H0)
-        'a.Add(&H0)
-        'Dim check As Byte = Me.Calcchecksum(a.ToArray, 3, 3)
-        'a.Add(check)
-        'Dim a_text As String = ""
-        'For index As Integer = 0 To a.Count - 1
-        '    a_text = a_text + "$" + a(index).ToString("X2")
-        'Next
-        'Console.WriteLine(a_text)
+            'Dim a As New List(Of Byte)
+            'a.Add(&HFF)
+            'a.Add(&HF3)
+            'a.Add(&H3)
+            'a.Add(&H1)
+            'a.Add(&H0)
+            'a.Add(&H0)
+            'Dim check As Byte = Me.Calcchecksum(a.ToArray, 3, 3)
+            'a.Add(check)
+            'Dim a_text As String = ""
+            'For index As Integer = 0 To a.Count - 1
+            '    a_text = a_text + "$" + a(index).ToString("X2")
+            'Next
+            'Console.WriteLine(a_text)
 
-        'Dim a As New sunray_format_FFF3
-        'a.setIndex(65534)
-        'a.setIndex(3365534)
+            'Dim a As New sunray_format_FFF3
+            'a.setIndex(65534)
+            'a.setIndex(3365534)
+
+
+            '20200206
+            'Dim deleteFile_cycle As New deleteFile_cycle(1)
+            'deleteFile_cycle.loadP()
+
+            'deleteFile_cycle.saveP()
+            'Dim a As String = "CubicianKeyForSunSky22761931"
+            'Dim aa As String = SunSkyActivator.GetApplyCode
+            ''SunSkyActivator.SaveAuthentication(aa)
+            'Dim a2 As New SunSkyActivator2
+            ''a2.GenerateKey()
+            ''a2.test2()
+            'a2.test3()
+            'myRSA.test2()
+
+
     End Sub
     Sub time()
         Console.WriteLine(Now.ToString)

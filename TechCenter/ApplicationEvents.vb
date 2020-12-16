@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.ApplicationServices
 Namespace My
-    ' MyApplication 可以使用下列事件: 
+
+    ' MyApplication 可以使用下列事件: 
     ' 
     ' Startup:  在應用程式啟動時，但尚未建立啟動表單之前引發。
     ' Shutdown:  在所有應用程式表單關閉之後引發。如果應用程式不正常終止，就不會引發此事件。

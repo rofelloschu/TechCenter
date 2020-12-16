@@ -102,6 +102,7 @@
     <Compile Include="IO\mutexList_V02.vb" />
     <Compile Include="IO\mail\SendMail.vb" />
     <Compile Include="math\avg.vb" />
+    <Compile Include="pic\M_pic.vb" />
     <Compile Include="sql\Parameters_usesqldatabase.vb" />
     <Compile Include="sql\useSqlDatabase2.vb" />
     <Compile Include="temp\Black_EPC_list.vb" />
@@ -128,7 +129,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="base\M\M_Math.vb" />
+    <Compile Include="math\M_Math.vb" />
     <Compile Include="temp\cycle_run.vb" />
     <Compile Include="temp\delayRun.vb" />
   </ItemGroup>

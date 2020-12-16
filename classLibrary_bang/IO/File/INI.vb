@@ -1,15 +1,20 @@
 ﻿'轉INI.cs
-'20181212
+
 'https://www.pinvoke.net/default.aspx/kernel32.queryperformancecounter
 'https://ithelp.ithome.com.tw/articles/10096533
 'https://dotblogs.com.tw/chiajung/2009/11/05/11437
-'https://ithelp.ithome.com.tw/articles/10096533
+
 Imports System
 Imports System.Runtime.InteropServices
 Imports System.Text
-
+'[section]
+' name=value ; comment text
+'UTF-8
 '201801212
 '20190729 增加使用方法 
+'20200107擴充方法INI_A
+'20200320
+'20200519
 Public Class INI
     Implements IDisposable
 
@@ -119,7 +124,7 @@ Public Class INI
         Dim bytesReturned As Integer = GetPrivateProfileSectionNames(pReturnedString, MAX_BUFFER, Me._FilePath)
         Return IntPtrToStringArray(pReturnedString, bytesReturned)
     End Function
-    '未測
+    '將所有 Section內容 回傳 : \  都會分段
     Function GetSection(section As String) As String()
         Dim MAX_BUFFER As UInt32 = 32767
         Dim pReturnedString As IntPtr = Marshal.AllocCoTaskMem(MAX_BUFFER)
@@ -135,6 +140,16 @@ Public Class INI
         Marshal.FreeCoTaskMem(pReturnedString)
         Return local.Substring(0, local.Length - 1).Split("\0")
     End Function
+
+    '未測
+    Public Sub delSection(SectionName As String)
+        WritePrivateProfileString(SectionName, Nothing, Nothing, Me._FilePath)
+    End Sub
+    '未測
+    Public Sub delKey(SectionName As String, key As String)
+        WritePrivateProfileString(SectionName, key, Nothing, Me._FilePath)
+    End Sub
+
     Public Shared Sub example()
         ' System.IO.Directory.GetCurrentDirectory()
         Console.WriteLine(Application.StartupPath)
@@ -158,10 +173,25 @@ Public Class INI
             Console.WriteLine("CONFIG.Hour " + oTINI.getKeyValue("CONFIG", "Hour"))
 
             Console.WriteLine("test " + oTINI.getKeyValue("test", "a01"))
-            Console.WriteLine("GetSection " + oTINI.GetSectionName.Count.ToString)
+            Console.WriteLine("GetSection " + oTINI.GetSectionName.Length.ToString)
         End Using
 
 
+    End Sub
+End Class
+Public Class INI_A
+    Inherits INI
+
+    Public Sub New(ByVal path As String)
+        MyBase.New(path)
+    End Sub
+    '預設值
+    Public Sub Value_default(ByVal IN_Section As String, ByVal IN_Key As String, ByVal IN_Value As String)
+        'value = admin_INI.getKeyValue("dir", "path")
+        If MyBase.getKeyValue("dir", "path") = "" Then
+            '預設
+            MyBase.setKeyValue("dir", "path", IN_Value)
+        End If
     End Sub
 End Class
 Public Class use_INI

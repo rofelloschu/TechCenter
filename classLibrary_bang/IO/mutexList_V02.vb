@@ -1,5 +1,5 @@
 ﻿Imports System.Threading
-
+'20200421
 Public Class mutexList_V02(Of T)
 
     Private Queue As Queue(Of T)
@@ -75,7 +75,7 @@ Public Class mutexList_V02(Of T)
     End Property
 
     Public Sub test(ByVal count As Integer)
-        Dim testmutexList As New mutexList(Of String)
+        Dim testmutexList As New mutexList_V02(Of String)
         Dim startTime As DateTime
         Dim endTime As DateTime
         Dim ts As TimeSpan

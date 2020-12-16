@@ -355,5 +355,12 @@ Public Module M_Math
     '    HEX_to_OCT = BIN_to_OCT(Bin)
     'End Function
 #End Region
- 
+    '20201022
+    Function byteArrayTotextHex(data() As Byte) As String
+        Dim text As String = ""
+        For i As Integer = 0 To data.Length - 1
+            text = text + data(i).ToString("X2")
+        Next
+        Return text
+    End Function
 End Module

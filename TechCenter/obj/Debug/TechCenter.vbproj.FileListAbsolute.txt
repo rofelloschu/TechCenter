@@ -23,10 +23,11 @@ D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Resources.resources
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.vbproj.GenerateResource.Cache
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.exe
 D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.pdb
-D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Form2.resources
 D:\john2\github\TechCenter\TechCenter\bin\Debug\TechCenter.exe.config
 D:\john2\github\TechCenter\TechCenter\bin\Debug\classLibrary_bang.pdb
 D:\john2\github\TechCenter\TechCenter\bin\Debug\classLibrary_bang.xml
 D:\john2\github\TechCenter\TechCenter\bin\Debug\classLibrary_bang.dll
 D:\john2\github\TechCenter\TechCenter\bin\Debug\MySql.Data.dll
 D:\john2\github\TechCenter\TechCenter\bin\Debug\Newtonsoft.Json.dll
+D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Form_RSA.resources
+D:\john2\github\TechCenter\TechCenter\obj\Debug\TechCenter.Form_deleteFile.resources
