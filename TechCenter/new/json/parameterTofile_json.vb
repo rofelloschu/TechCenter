@@ -1,6 +1,8 @@
 ﻿Imports Newtonsoft.Json
 Imports System.IO
 Imports classLibrary_bang
+'20210305 增加編碼
+'20220420 修正save_p
 Public Class parameterTofile_json(Of parameter_class)
     Public Parameters As parameter_class
     Public filename As String
@@ -25,12 +27,17 @@ Public Class parameterTofile_json(Of parameter_class)
 
     Sub save_p()
         Dim text As String = JsonConvert.SerializeObject(Parameters)
+        '空白不存
+        If text = "null" Then
+            Exit Sub
+        End If
         WritrFile(filename, text)
     End Sub
     Function load_p() As parameter_class
         If System.IO.File.Exists(filename) Then
-            Dim text As String = System.IO.File.ReadAllText(filename)
+            Dim text As String = System.IO.File.ReadAllText(filename, System.Text.Encoding.Unicode)
             Parameters = JsonConvert.DeserializeObject(Of parameter_class)(text)
+
             Return Parameters
 
         End If
@@ -45,7 +52,7 @@ Public Class parameterTofile_json(Of parameter_class)
         End If
         '寫檔
         'MsgBox(t_filename + "W2")
-        Dim sw As New StreamWriter(t_filename, True, System.Text.Encoding.Default)
+        Dim sw As New StreamWriter(t_filename, True, System.Text.Encoding.Unicode)
         Try
 
             'For index As Integer = 0 To text_list.Count - 1

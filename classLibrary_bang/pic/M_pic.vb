@@ -1,4 +1,5 @@
-﻿
+﻿'20210312
+'20210804 graphics.DrawImage bug改用5參數
 Imports System.Drawing
 Module M_pic
     'https://www.cnblogs.com/bomo/archive/2013/02/25/2932700.html
@@ -44,8 +45,8 @@ Module M_pic
 
         Dim mybmp As Bitmap = New Bitmap(Wide, High)
         Dim gr As Graphics = Graphics.FromImage(mybmp)
-        gr.DrawImage(img1, 0, 0)
-        gr.DrawImage(img2, img1.Width, 0)
+        gr.DrawImage(img1, 0, 0, img1.Width, img1.Height)
+        gr.DrawImage(img2, img1.Width, 0, img2.Width, img2.Height)
         MergedImage = mybmp
         gr.Dispose()
         Return MergedImage
@@ -65,8 +66,8 @@ Module M_pic
 
         Dim mybmp As Bitmap = New Bitmap(Wide, High)
         Dim gr As Graphics = Graphics.FromImage(mybmp)
-        gr.DrawImage(img1, 0, 0)
-        gr.DrawImage(img2, 0, img1.Height)
+        gr.DrawImage(img1, 0, 0, img1.Width, img1.Height)
+        gr.DrawImage(img2, 0, img1.Height, img2.Width, img2.Height)
         MergedImage = mybmp
         gr.Dispose()
         Return MergedImage
@@ -84,11 +85,36 @@ Module M_pic
         tgr.DrawImage(img2, New Rectangle(0, 0, Logo.Width, Logo.Height), 0, 0, Logo.Width, Logo.Height, GraphicsUnit.Pixel, imgattributes)
         tgr.Dispose()
         Dim i1_w As Integer = img1.Width / 3
-        gr.DrawImage(Logo, i1_w, 10)
+        gr.DrawImage(Logo, i1_w, 10, Logo.Width, Logo.Height)
 
         gr.Dispose()
         MergedImage = img1
         Return MergedImage
+    End Function
+    '變形
+    Public Function resizeImage(ByVal imgToResize As System.Drawing.Image, ByVal size As Size) As System.Drawing.Image
+        Dim sourceWidth As Integer = imgToResize.Width
+        Dim sourceHeight As Integer = imgToResize.Height
+        Dim nPercent As Single = 0
+        Dim nPercentW As Single = 0
+        Dim nPercentH As Single = 0
+        nPercentW = (CSng(size.Width) / CSng(sourceWidth))
+        nPercentH = (CSng(size.Height) / CSng(sourceHeight))
+
+        If nPercentH < nPercentW Then
+            nPercent = nPercentH
+        Else
+            nPercent = nPercentW
+        End If
+
+        Dim destWidth As Integer = CInt((sourceWidth * nPercent))
+        Dim destHeight As Integer = CInt((sourceHeight * nPercent))
+        Dim b As Bitmap = New Bitmap(destWidth, destHeight)
+        Dim g As Graphics = Graphics.FromImage(CType(b, System.Drawing.Image))
+        g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic
+        g.DrawImage(imgToResize, 0, 0, destWidth, destHeight)
+        g.Dispose()
+        Return CType(b, System.Drawing.Image)
     End Function
 
 #Region "字轉圖 待改"
@@ -300,7 +326,7 @@ Module M_pic
                     Next
                 Next
 
-                g.DrawImage(image, 0, 0)
+                g.DrawImage(image, 0, 0, image.Width, image.Height)
                 Return bmp
             Next
         End If

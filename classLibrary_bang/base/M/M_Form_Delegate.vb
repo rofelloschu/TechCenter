@@ -161,19 +161,4 @@ Module M_Form_Delegate
     End Sub
 
 #End Region
-
-#Region "NumericUpDown"
-    Delegate Sub SetNumericUpDown_value_Delegate(ByVal Control As System.Windows.Forms.NumericUpDown, ByVal ctrlText As String)
-
-    Private Sub SetNumericUpDown_value(ByVal Control As System.Windows.Forms.NumericUpDown, ByVal value As Integer)
-        If Control.InvokeRequired Then
-            Dim d_Delegate As New SetNumericUpDown_value_Delegate(AddressOf SetNumericUpDown_value)
-            Control.FindForm.BeginInvoke(d_Delegate, Control, value)
-
-        Else
-            Control.Value = value
-        End If
-    End Sub
-#End Region
-
 End Module

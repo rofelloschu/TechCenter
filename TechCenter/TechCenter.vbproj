@@ -110,7 +110,10 @@
     <Compile Include="new2_\I_mb\think01.vb" />
     <Compile Include="new2_\objDatabase\objDatabase.vb" />
     <Compile Include="new2_\objDatabase\tagdata.vb" />
+    <Compile Include="new\M_ClientReadWork2.vb" />
+    <Compile Include="new\PictureBox_plus.vb" />
     <Compile Include="new\appDiary.vb" />
+    <Compile Include="new\cycle_min_timer.vb" />
     <Compile Include="new\IniToDict.vb" />
     <Compile Include="new\json\json_seach.vb" />
     <Compile Include="new\json\parameterTofile_json.vb" />
@@ -127,6 +130,7 @@
     <Compile Include="new\RSunraydata\seachSunrayData.vb" />
     <Compile Include="new\RSunraydata\seachSunrayData2.vb" />
     <Compile Include="new\sleep.vb" />
+    <Compile Include="new\timeout_timer.vb" />
     <Compile Include="new\tools\comm\udpserver_lock_sp.vb" />
     <Compile Include="new\tools\comm\Work_Ping2.vb" />
     <Compile Include="new\tools\comm\Work_Ping2_auto.vb" />

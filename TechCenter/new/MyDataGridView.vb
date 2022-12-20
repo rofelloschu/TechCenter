@@ -1,7 +1,7 @@
 ﻿'20130730
 Imports System.Data
 Public Class MyDataGridView
-    Private mDataTable As Data.DataTable
+    Private mDataTable As System.Data.DataTable
     Private myDataGridView As System.Windows.Forms.DataGridView
     Sub New(ByVal tDataGridView As System.Windows.Forms.DataGridView, ByVal ColumnsHeadText() As String)
         If tDataGridView Is Nothing Then
@@ -23,11 +23,25 @@ Public Class MyDataGridView
 
         GC.Collect()
     End Sub
-     
+    Sub AutoSizeMode()
+  
+        For index As Integer = 0 To myDataGridView.Columns.Count - 1
+            AutoSizeMode2(index, DataGridViewAutoSizeColumnsMode.Fill)
+        Next
+    End Sub
+    Public Delegate Sub set_AutoSizeMode(index As Integer, id As Integer)
+    Private Sub AutoSizeMode2(index As Integer, id As Integer)
+        If Me.myDataGridView.FindForm.InvokeRequired Then
+            Me.myDataGridView.FindForm.BeginInvoke(New set_AutoSizeMode(AddressOf Me.AutoSizeMode2), {index, id})
+        Else
+            myDataGridView.Columns(index).AutoSizeMode = id
+        End If
+    End Sub
+
     Sub New()
         mDataTable = New System.Data.DataTable
     End Sub
-     
+
     Property data() As System.Data.DataTable
         Get
             Return Me.mDataTable
@@ -71,7 +85,7 @@ Public Class MyDataGridView
     End Sub
     Sub addData(ByVal dataString() As String)
         Try
-         
+
             Dim tData As System.Data.DataRow = mDataTable.NewRow
 
             For index As Integer = 0 To dataString.Length - 1
@@ -84,7 +98,7 @@ Public Class MyDataGridView
 
         End Try
     End Sub
- 
+
     Sub addData(ByVal data As System.Data.DataRow)
         If myDataGridView IsNot Nothing Then
             If Me.myDataGridView.FindForm.InvokeRequired Then
@@ -108,7 +122,7 @@ Public Class MyDataGridView
                 mDataTable.Clear()
             End If
         End If
-
+        Threading.Thread.Sleep(10) '延遲  字才會顯示 
 
     End Sub
 End Class

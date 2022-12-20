@@ -3,6 +3,7 @@ Imports System.Net.Sockets
 Imports System.Threading
 '20181217
 '<ObsoleteAttribute("未做", False)> _
+'20211015
 Public Class serverSocket
     Implements IF_Communication2
 
@@ -22,6 +23,7 @@ Public Class serverSocket
     Private isrun As Boolean
 
     Private t_read As Thread
+    Private t_read2 As Thread
     Private t_connect As Thread
     Private t_isConnecte As Thread
     Sub New()
@@ -33,6 +35,8 @@ Public Class serverSocket
         t_connect.Start()
         t_read = New Thread(AddressOf Me.auto_read)
         t_read.Start()
+        t_read2 = New Thread(AddressOf Me.auto_read2)
+        t_read2.Start()
         t_isConnecte = New Thread(AddressOf Me.auto_isConnecte)
         t_isConnecte.Start()
     End Sub
@@ -87,16 +91,23 @@ Public Class serverSocket
         End While
     End Sub
 
+
+    Private temp_read_list As New mutexList_V02(Of Byte())
     Sub auto_read()
 
         While Me.isrun
-            Thread.Sleep(1000)
+            Thread.Sleep(10)
             If Me.enabled And Me.Connected Then
                 If stream.CanRead Then
                     Dim dataByte As Byte()
-                    dataByte = M_ClientReadWork.auto_readWork(Me.stream)
+                    'dataByte = M_ClientReadWork.auto_readWork(Me.stream)
+                    dataByte = M_ClientReadWork2.auto_readWork(Me.stream, 10240)
                     If dataByte IsNot Nothing Then
-                        RaiseEvent readData(dataByte)
+                        If dataByte.Length > 0 Then
+                            temp_read_list.Add(dataByte)
+                        End If
+
+                        'RaiseEvent readData(dataByte)
                     End If
                 End If
 
@@ -106,7 +117,18 @@ Public Class serverSocket
 
         End While
     End Sub
+    Sub auto_read2()
+        While Me.isrun
+            Thread.Sleep(10)
+            If temp_read_list.Count > 0 Then
 
+                RaiseEvent readData(temp_read_list.getFirstValue())
+            Else
+                Thread.Sleep(90)
+            End If
+
+        End While
+    End Sub
 
     Function TestConnected() As Boolean
         Dim testRecByte(0) As Byte
@@ -213,7 +235,8 @@ Public Class serverSocket_use
 
     Sub test01()
         Dim serverSocket As serverSocket = New serverSocket
-        serverSocket.setConnect("127.0.0.1", 10001)
+        'serverSocket.setConnect("127.0.0.1", 10001)
+        serverSocket.setConnect(10001)
         serverSocket.start()
     End Sub
 End Class
